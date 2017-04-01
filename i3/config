@@ -1,0 +1,279 @@
+###############################
+#  _ _____                    #
+# (_)___ /_      ___ __ ___   #
+# | | |_ \ \ /\ / / '_ ` _ \  #
+# | |___) \ V  V /| | | | | | #
+# |_|____/ \_/\_/ |_| |_| |_| #
+#                             #
+###############################                           
+
+
+# win key for mod
+set $mod Mod4
+
+# font for bar and window titles
+# I dont use window titles :)
+set $ui_font nu 8
+
+# set the font
+# my prefence for fonts change all the time :(
+font pango:$ui_font
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec urxvtc
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu replacement - rofi
+bindsym $mod+d exec --no-startup-id /home/akts/bin/run_rofi.sh
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# I like fancy names for my workspaces
+set $ws1 "1:一"
+set $ws2 "2:二"
+set $ws3 "3:三"
+set $ws4 "4:四"
+set $ws5 "5:五"
+set $ws6 "6:六"
+set $ws7 "7:七"
+set $ws8 "8:八"
+set $ws9 "9:九"
+set $ws10 "10:十"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+set $black   #010101
+set $white   #FFFFFF
+set $red     #F92672
+set $focus_color "#AD73BA"
+set $unfocus_color "#151515"
+
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        #status_command i3status
+	    status_command i3blocks -c ~/.i3blocks.conf
+        position top
+
+        colors {
+           background $black
+           statusline $white
+           separator  $unfocus_color
+
+           #                  <border> <background> <text>
+           focused_workspace  $black    $unfocus_color       $white
+           active_workspace   $black    $unfocus_color       $white
+           inactive_workspace $black    $black       $white
+           urgent_workspace   $unfocus_color  $red     $black
+           binding_mode       $unfocus_color  $red     $black
+       }
+}
+
+# no window titles
+new_window pixel 3
+new_float pixel 3
+
+# colors for the window borders and such
+client.focused          $focus_color  $focus_color  $focus_color  $focus_color  $focus_color
+client.focused_inactive $unfocus_color  $unfocus_color  $unfocus_color  $focus_color  $unfocus_color
+client.unfocused        $unfocus_color  $unfocus_color  $unfocus_color  $focus_color  $unfocus_color
+client.urgent           $focus_color $focus_color $focus_color $focus_color   $focus_color
+client.placeholder      $unfocus_color  $unfocus_color  $unfocus_color  $focus_color  $unfocus_color
+client.background       $focus_color
+
+
+# Start-up applications
+exec --no-startup-id xset +fp /usr/share/fonts/X11/misc/premk-fonts
+exec --no-startup-id xset fp rehash 
+exec --no-startup-id xrdb /home/akts/.Xresources 
+exec --no-startup-id xset b off 
+exec --no-startup-id xset r rate 250 25 
+exec --no-startup-id xsetroot -cursor_name left_ptr 
+exec --no-startup-id setxkbmap -option caps:escape
+exec --no-startup-id synclient VertEdgeScroll=1 HorizEdgeScroll=1 TapButton1=1 TapButton2=3  2>/dev/null
+exec --no-startup-id syndaemon -i .5 -K -t -R -d 
+exec --no-startup-id urxvtd -q -o -f 
+exec --no-startup-id xfce4-power-manager 
+exec --no-startup-id thunar --daemon 
+exec --no-startup-id compton -b --config /home/akts/.config/compton.conf 
+exec --no-startup-id nitrogen --restore 
+exec --no-startup-id redshift -o -l 0:0 -b 0.7 -t 6500:6500 
+exec --no-startup-id (pkill xfce4-notifyd; dunst) 
+exec --no-startup-id xautolock -time 5 -locker /home/akts/bin/lock.sh 
+exec --no-startup-id nm-applet
+exec --no-startup-id clipit
+exec --no-startup-id volti
+
+
+##For moc:
+set $music mocp
+set $pause --no-startup-id mocp -G 
+set $next --no-startup-id mocp -f
+set $prev --no-startup-id mocp -r
+set $lilfor --no-startup-id mocp -k 10
+set $bigfor --no-startup-id mocp -k 120
+set $lilbak --no-startup-id mocp -k -10
+set $bigbak --no-startup-id mocp -k -120
+set $beg --no-startup-id mocp -j 0%
+
+# keybinds for applications
+#bindsym $mod+Shift+w exec --no-startup-id chromium
+# chromium crashes while using a font that doesn't have bold characters
+bindsym $mod+Shift+w exec --no-startup-id env GTK2_RC_FILES=/home/akts/.gtkrc-2.0-chrome chromium 
+bindsym $mod+Shift+e exec --no-startup-id subl
+bindsym $mod+Shift+f exec --no-startup-id thunar
+bindsym $mod+Shift+m exec --no-startup-id deadbeef
+bindsym $mod+Shift+Return exec --no-startup-id urxvtc -e zsh -c "tmux -2 -u"
+#bindsym $mod+Shift+Return exec --no-startup-id urxvtc -e tmux
+bindsym $mod+x exec --no-startup-id /home/akts/bin/lock.sh
+bindsym $mod+c exec --no-startup-id urxvtc -e weechat
+bindsym $mod+b exec --no-startup-id $prev
+bindsym $mod+n exec --no-startup-id $next
+bindsym $mod+o exec --no-startup-id $beg
+bindsym $mod+p exec --no-startup-id $pause
+bindsym $mod+bracketleft exec --no-startup-id $lilbak
+bindsym $mod+Shift+bracketleft  exec --no-startup-id $bigbak
+bindsym $mod+bracketright exec --no-startup-id $lilfor
+bindsym $mod+Shift+bracketright exec --no-startup-id $bigfor
+bindsym $mod+m exec --no-startup-id urxvtc -e $music
+bindsym $mod+Ctrl+Right resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+Up resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+Down resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+Left resize grow width 10 px or 10 ppt
+
+
+
+# open certain windows in floating mode
+for_window [class="(?i)lxappearance"] floating enable
+for_window [class="(?i)xcalc"] floating enable
+for_window [class="(?i)xfontsel"] floating enable
+for_window [window_role="(?i)pop-up"] floating enable
+for_window [class="(?i)Pidgin"] floating enable
+for_window [class="(?i)transmission-gtk"] floating enable
+#for_window [class="^thunar" title="^File Operation Progress" instance="^Thunar"] floating enable
+for_window [title="(?i)File Operation Progress"] floating enable
+for_window [class="(?i)pavucontrol"] floating enable
+for_window [class="(?i)deadbeef"] floating enable
+for_window [class="(?i)deluge"] floating enable
+for_window [window_role="pop-up"] floating enable
+
+# exit dialogue
+set $mode_system System (e) xit, (s) uspend, (r) eboot, (p) oweroff
+mode "$mode_system" {
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id ~/bin/lock.sh && systemctl suspend, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym p exec --no-startup-id systemctl poweroff, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+x mode "$mode_system"
+
+# vim:filetype=i3

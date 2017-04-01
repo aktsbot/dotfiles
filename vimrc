@@ -1,11 +1,23 @@
+#
+#        _           
+# __   _(_)_ __ ___  
+# \ \ / / | '_ ` _ \ 
+#  \ V /| | | | | | |
+#   \_/ |_|_| |_| |_|
+#                   
+
+
 set nocompatible " prefer vim features over vi
 filetype plugin indent on " Filetype auto-detection
 syntax on " Syntax highlighting
 
+set encoding=utf-8
 scriptencoding utf-8
 
-set autoindent
-set backspace=indent,start,eol
+set term=screen-256color
+
+"set autoindent
+"set backspace=indent,start,eol
 
 set tabstop=4
 set shiftwidth=4
@@ -15,6 +27,8 @@ set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
 set autoindent " Match indents on new lines.
 set smartindent " Intellegently dedent / indent new lines based on rules.
+
+set pastetoggle=<f5>
 
 set nobackup " We have vcs, we don't need backups.
 set nowritebackup " We have vcs, we don't need backups.
@@ -68,31 +82,48 @@ nnoremap <leader><leader> <c-^>
 noremap j gj
 noremap k gk
 
-" colors
-let base16colorspace=256
-set t_Co=256 " 256 color mode
-set background=dark
-
 set cursorline
 set number
 set relativenumber
-
-" statusline
-" cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-" format markers:
-"   %< truncation point
-"   %n buffer number
-"   %f relative path to file
-"   %m modified flag [+] (modified), [-] (unmodifiable) or nothing
-"   %r readonly flag [RO]
-"   %y filetype [ruby]
-"   %= split point for left and right justification
-"   %-35. width specification
-"   %l current line number
-"   %L number of lines in buffer
-"   %c current column number
-"   %V current virtual column number (-n), if different from %c
-"   %P percentage through buffer
-"   %) end of width specification
+            
 set laststatus=2
-set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-surround'
+Plug 'itchyny/landscape.vim'
+call plug#end()
+
+" colors
+set t_Co=256 " 256 color mode
+set background=dark
+"let g:hybrid_custom_term_colors = 1
+"let g:hybrid_reduced_contrast = 1
+colorscheme landscape
+
+" give us nice EOL (end of line) characters
+"set list
+"set listchars=tab:▸\ ,eol:¬
+
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'landscape',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"x":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
+
+"let g:lightline = {
+"      \ 'colorscheme': 'landscape',
+"      \ 'component': {
+"      \   'readonly': '%{&readonly?"⭤":""}',
+"      \ },
+"       \ 'separator': { 'left': '⮀', 'right': '⮂' },
+"      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+"      \ }
+
+map <F2> :NERDTreeToggle<CR>
+

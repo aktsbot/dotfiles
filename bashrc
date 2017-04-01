@@ -28,7 +28,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -37,13 +37,16 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 force_color_prompt=yes
+
+# git info in prompt
+source ~/.config/git-prompt.sh
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -58,7 +61,8 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\$\[\033[00m\] '
+    #PS1='${debian_chroot:+($debian_chroot)}\u\[\033[00m\] \w\[\033[00m\] \[\033[01;32m\]\$\[\033[00m\] '
+    PS1='${debian_chroot:+($debian_chroot)}$(__git_ps1) \[\033[01;31m\]>\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -76,26 +80,22 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
+    #alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+#alias ll='ls -l'
+#alias la='ls -A'
+#alias l='ls -CF'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -117,35 +117,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# git autocompletion
-if [ -f ~/.git_completion.bash ]; then
-    source ~/.git_completion.bash
-fi
-
-
 # colored man pages
 export PAGER="most"
 
-# functions lifted from
-# https://github.com/dkeg/dots/blob/master/bashrc
+# ls colors
+#eval $(dircolors -b $HOME/.dircolors)
 
-## functions
-# up directory; replace cd ../..; usage up, up 2, so on
-function up() {
-    local d=""
-    limit=$1
-    for ((i=1; i <= limit; i++))
-    do
-        d=$d/..
-    done
-    d=$(echo $d | sed 's/^\///')
-    if [ -z "$d" ]; then
-        d=..
-    fi
-    cd $d
-}
-
-# do cd and then ls
-cd() {
-    builtin cd $@ && ls
-}
+PATH="/home/akts/.perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/akts/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/akts/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/akts/.perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/akts/.perl5"; export PERL_MM_OPT;
