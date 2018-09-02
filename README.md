@@ -14,7 +14,7 @@ $ sudo apt install rxvt-unicode-256color tmux neovim i3 nitrogen lxappearance xf
 
 I'm sure the above list is not full, but it's enough to get one started. [Here's](https://blog.aktsbot.in/lubuntu-i3wm-awesomeness.html) a little blog post to get to know my i3wm workflow 😉
 
-The only main change(aside from the plane setup) from my previous setup is that I've moved over to [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) and [neovim](https://neovim.io/).
+The only main change(aside from the plane setup) from my previous setup is that I've moved over to [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) and [neovim](https://neovim.io/) + [plug](https://github.com/junegunn/vim-plug).
 
 ## inspiration
 
