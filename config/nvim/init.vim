@@ -25,28 +25,31 @@ set incsearch " live incremental searching
 set showmatch " live match highlighting
 set hlsearch " highlight matches
 
+" No more visual mode from using mouse! 
+set mouse-=a
+
 " So we don't have to press shift when we want to get into command mode.
 nnoremap ; :
 vnoremap ; :
 
 "set cursorline
-set number
-set relativenumber
-highlight LineNr ctermfg=black
+"set number
+"set relativenumber
 
 " Toggle line numbers
 " while relativenumber is on, this wont do anything :(
-"nnoremap <F2> :set nonumber!<CR>
+nnoremap <F2> :set nonumber!<CR>
 
+" plugin manager
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/PotatoesMaster/i3-vim-syntax'
-Plug 'agude/vim-eldar'
+Plug 'mboughaba/i3config.vim'
 call plug#end()
+
 
 " colors
 set t_Co=256 " 256 color mode
 set background=dark
-colorscheme eldar
+colorscheme desert
 
 " Turn off modelines
 "set modelines=0
