@@ -9,6 +9,8 @@ $ mkfontscale
 $ # refer the xsession file
 ```
 
+The `ufetch` script is from [jschx](https://gitlab.com/jschx/ufetch).
+
 To get the packages I have, there is a file called `installed`.
 Do a 
 ```
