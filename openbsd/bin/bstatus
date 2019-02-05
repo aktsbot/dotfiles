@@ -1,0 +1,60 @@
+#!/bin/sh
+
+sep=" | "
+
+## glyphs
+glymem=""
+glybatt=""
+glyclock=""
+glycal=""
+glytemp=""
+
+## colors
+cblk="#1a1a1a"
+cred="#d75f5f"
+cgrn="#87af5f"
+cylw="#ffaf5f"
+cblu="#87afd7"
+cmag="#8787af"
+ccyn="#5f8787"
+cwht="#808080"
+a="#FF"
+
+## outputs
+bat_ac_stat="$(apm -a)"
+bat_stat="$(apm -b)"
+bat_perc="$(apm -l)"
+cpu_temp="$(sysctl hw.sensors.cpu0.temp0 | cut -d= -f 2 | cut -d. -f 1)°C"
+date="$(date '+%a %b %d %H:%M')"
+ws_no="$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')"
+#win_title="$(xprop -id $(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5) WM_NAME | awk '{$1=$2="";print}' | tr -d '"' | cut -c 1-80)"
+
+# convert statuses into shit I can understand
+# man 8 apm
+case "$bat_stat" in
+	0) bat_stat="high" ;;
+	1) bat_stat="low" ;;
+	2) bat_stat="critical" ;;
+	3) bat_stat="charging" ;;
+	4) bat_stat="absent" ;;
+	*) bat_stat="unknown" ;;
+esac
+
+case "$bat_ac_stat" in
+        0) bat_ac_stat="disconnected" ;;
+        1) bat_ac_stat="connected" ;;
+        2) bat_ac_stat="backup" ;;
+        *) bat_ac_stat="unknown" ;;
+esac
+
+# color em up
+clr="%{F-}%{B-}"
+bat_ac_stat="%{F$ccyn}$glybatt $bat_ac_stat$clr"
+bat_stat="%{F$ccyn}$bat_stat$clr"
+bat_perc="%{F$ccyn}$bat_perc$clr"
+cpu_temp="%{F$cred}$glytemp $cpu_temp$clr"
+date="%{F$cmag}$glyclock $date$clr"
+ws_no="%{F$cylw}$ws_no$clr"
+#win_title="$win_title"
+
+echo "%{l} $ws_no %{c}$date %{r}$cpu_temp$sep$bat_ac_stat $bat_stat $bat_perc% "

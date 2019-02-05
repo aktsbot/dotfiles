@@ -1,0 +1,68 @@
+export EDITOR=$VIM
+export FCEDIT=$EDITOR
+export PAGER=less
+export LESS='-iMRS -x2'
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export NO_COLOR=1
+HISTFILE=$HOME/.ksh_history
+HISTSIZE=20000
+
+# emacs mode gives you the familiar Ctrl-A, Ctrl-E, etc
+set -o emacs
+
+alias ll='ls -alF'
+alias ls='ls -aF'
+alias l='ls'
+alias vim='nvim'
+alias vi='vim'
+alias v='vi'
+alias tmux="tmux -2"
+alias t='tmux'
+alias q='exit'
+alias gping='ping -c 3 1.1.1.1'
+
+alias gaa="git add -A"
+alias gcm="git commit -m"
+alias gpo="git push origin"
+
+alias vvim="v ~/.config/nvim/init.vim"
+alias vksh="v ~/.kshrc"
+
+alias ufetch="TERM=xterm ufetch"
+
+# C-l to clear screen
+bind -m '^L'=clear'^J'
+
+if [ -e ~/.ksh_completions ]; then
+	. ~/.ksh_completions
+fi
+
+if [ -e ~/.git-prompt ]; then
+	. ~/.git-prompt
+	export GIT_PS1_SHOWDIRTYSTATE=true
+	export GIT_PS1_SHOWUNTRACKEDFILES=true
+	export GIT_PS1_SHOWCOLORHINTS=true
+	export GIT_PS1_SHOWUPSTREAM="auto"
+fi
+
+if [ -e ~/.aliases ]; then
+	. ~/.aliases
+fi
+
+_XTERM_TITLE='\[\033]0;\u@\h:\w\007\]'
+# set prompt
+# 0 normal 1 bold
+#grey="\033[01;30m"
+#red="\033[01;31m"
+#green="\033[01;32m"
+yellow="\033[00;33m"
+blue="\033[00;34m"
+#magenta="\033[01;35m"
+#cyan="\033[01;35m"
+#bold="\\033[01;39m"
+white="\\033[0m"
+#PS1='\W$(__git_ps1 " (%s)")\$ '
+#PS1='$blue\W$yellow$(__git_ps1 " (%s)")$white '
+PS1='$_XTERM_TITLE$blue\W$yellow$(__git_ps1 " (%s)")$white '
+

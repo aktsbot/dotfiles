@@ -1,0 +1,53 @@
+# use UTF-8 everywhere
+export LANG=en_US.UTF-8
+
+# specify location of kshrc
+export ENV=$HOME/.kshrc
+
+# load muh fonts!
+xset +fp /home/akts/.fonts/bitmap/tamzen
+xset +fp /home/akts/.fonts/bitmap/siji
+#xset +fp /home/akts/.fonts/bitmap/ybeastie
+xset fp rehash
+
+# load Xresources file
+xrdb -merge $HOME/.Xdefaults
+
+# set your background color
+#xsetroot -solid dimgray
+#xsetroot -bitmap $HOME/.config/walls/patterns/brick_diag.xbm -bg "#5c575b" -fg "#363334" 
+
+# xidle will lock your display after a period of inactivity
+xidle &
+
+# sadly, xclock has a bug where the font selection is ignored when UTF-8
+# is enabled, so we unset LANG here.
+#LANG= xclock -strftime "%a %e %b %Y %H:%M" &
+FONT1="-*-tamzen-medium-r-*-*-12-*-*-*-*-*-*-*"
+FONT2="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+~/bin/bar | lemonbar -n "lemonbar" -B "#080808" -F "#808080" -f "$FONT1" -f "$FONT2" &
+
+# disable system beep
+xset b off
+
+setxkbmap -option caps:escape
+xset r rate 350 35
+xsetroot -cursor_name left_ptr
+xbacklight -set 80
+redshift -o -l 0:0 -b 0.8 -t 6500:6500
+#compton -cb -o0 &
+~/.fehbg
+compton -b
+
+# if you have a ThinkPad, the following lines enable TrackPoint
+# scrolling by dragging with the middle button.
+xinput set-prop "/dev/wsmouse" "WS Pointer Wheel Emulation" 1 
+xinput set-prop "/dev/wsmouse" "WS Pointer Wheel Emulation Button" 2 
+xinput set-prop "/dev/wsmouse" "WS Pointer Wheel Emulation Axes" 6 7 4 5 
+
+if [ -x /usr/local/bin/dbus-launch -a -z "${DBUS_SESSION_BUS_ADDRESS}" ]; then
+        eval `dbus-launch --sh-syntax --exit-with-session`
+fi
+
+
+exec cwm

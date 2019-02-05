@@ -1,0 +1,9 @@
+#!/bin/sh
+
+#while :; do ~/bin/status; done | lemonbar -b -B "#030303" -F "#E0E0E0"
+
+while :; do
+	STATUS="$(~/bin/bstatus)"
+	echo "$STATUS"
+    	sleep 0.5
+done
