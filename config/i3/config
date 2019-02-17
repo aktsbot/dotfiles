@@ -166,7 +166,7 @@ set $col_cyan  #005577
 
 # Layout colors 	    bord        bg            text           indicator (split)
 client.focused 		    $col_cyan   $col_cyan     $col_gray4     $col_cyan
-client.focused_inactive     $col_gray4  $col_gray4    $col_gray4     $col_gray4
+client.focused_inactive     $col_gray2  $col_gray1    $col_gray4     $col_gray4
 client.unfocused 	    $col_gray2  $col_gray1    $col_gray4     $col_gray4
 client.urgent 		    $col_cyan   $col_cyan     $col_gray4     $col_cyan
 client.background 	    $col_gray1
