@@ -1,0 +1,4 @@
+#!/bin/sh
+
+d=$(date +"%a %b %e %H:%M")
+echo "$d" | tr '[:upper:]' '[:lower:]'

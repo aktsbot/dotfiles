@@ -1,0 +1,8 @@
+#!/bin/sh
+
+#dmenu_run \
+#  -p "Run:" -l 10 -fn "Monospace:size=9.5" \
+#  -nb "#000000" -sb "#000000" -nf "#666666" -sf "#ffffff"
+
+dmenu_run \
+  -p "Run:" -l 10 -fn "Monospace:size=10"
