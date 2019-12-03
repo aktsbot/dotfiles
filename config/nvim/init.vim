@@ -1,94 +1,86 @@
-"                                 ___
-"        ___        ___          /__/\
-"       /__/\      /  /\        |  |::\
-"       \  \:\    /  /:/        |  |:|:\
-"        \  \:\  /__/::\      __|__|:|\:\
-"    ___  \__\:\ \__\/\:\__  /__/::::| \:\
-"   /__/\ |  |:|    \  \:\/\ \  \:\~~\__\/
-"   \  \:\|  |:|     \__\::/  \  \:\
-"    \  \:\__|:|     /__/:/    \  \:\
-"     \__\::::/      \__\/      \  \:\
-"         ~~~~                   \__\/
-
-set nocompatible " prefer vim features over vi
-filetype plugin indent on " Filetype auto-detection
-syntax on " Syntax highlighting
-
-set encoding=utf-8
-scriptencoding utf-8
-
-set nobackup " We have vcs, we don't need backups.
-set nowritebackup " We have vcs, we don't need backups.
-set noswapfile " They're just annoying. Who likes them?
-
-set incsearch " live incremental searching
-set showmatch " live match highlighting
-set hlsearch " highlight matches
-
-" No more visual mode from using mouse! 
-set mouse-=a
-
-" So we don't have to press shift when we want to get into command mode.
-nnoremap ; :
-vnoremap ; :
-
-"set cursorline
-"set number
-"set relativenumber
-
-" Toggle line numbers
-" while relativenumber is on, this wont do anything :(
-nnoremap <F2> :set nonumber!<CR>
-
-" plugin manager
-call plug#begin('~/.vim/plugged')
-Plug 'mboughaba/i3config.vim'
-call plug#end()
-
-
-" colors
-set t_Co=256 " 256 color mode
-set background=dark
-colorscheme desert
-
-" Turn off modelines
-"set modelines=0
-
-" Ignore case when searching
+"
+" defaults for everything
+"
+set laststatus=2
 set ignorecase
-
-" When searching try to be smart about cases
+set ruler
+set showmode
 set smartcase
 
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
+let mapleader = "\<space>"
 
-" For regular expressions turn magic on
-set magic
-
-" Display 5 lines above/below the cursor when scrolling with a mouse.
-set scrolloff=5
-" Fixes common backspace problems
-set backspace=indent,eol,start
-
-" Display options
-set showmode
-set showcmd
-set cmdheight=1
-
-" Highlight matching pairs of brackets. Use the '%' character to jump between them.
-set matchpairs+=<:>
-
-" Set status line display
-set laststatus=2
-
-" Encoding
+set splitbelow
+" show empty white spaces
 set encoding=utf-8
+"set listchars=trail:·
+set listchars=tab:▸\ ,eol:¬,space:.
+"set list
+nmap <leader>l :set list!<CR>
 
-"Always show current position
-set ruler
+set nocompatible
+filetype off
 
-" Store info from no more than 100 files at a time, 9999 lines of text
-" 100kb of data. Useful for copying large amounts of data between files.
-set viminfo='100,<9999,s100
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'junegunn/seoul256.vim'
+call plug#end()
+
+filetype plugin indent on
+
+set laststatus=2
+" exit without Shift + ;
+nnoremap ; :
+vnoremap ; :
+" use system clipboard
+set clipboard=unnamedplus
+" 80 chars/line
+set textwidth=0
+set colorcolumn=80
+" Keep the cursor on the same column
+set nostartofline
+
+" tabs -> 1 tab = 2 space
+set tabstop=2
+set shiftwidth=2
+set expandtab smarttab
+
+" Annoying temporary files
+set backupdir=/tmp//,.
+set directory=/tmp//,.
+if v:version >= 703
+  set undodir=/tmp//,.
+endif
+
+" remove trailing whitespace when I need
+function! TrimWhitespace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfunction
+
+" configure netrw like nerdtree, opened with :Vex
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_winsize = 20 "str2nr(system('expr $COLUMNS - 81'))
+let g:netrw_browse_split = 4
+let g:netrw_list_hide = '\.(o|pyc)$'
+
+" minor color config
+set background=dark
+set t_Co=256
+syntax enable
+colorscheme ron
+highlight Search ctermbg=12
+highlight NonText ctermfg=darkgrey
+highlight SpecialKey ctermfg=darkgrey
+highlight clear SignColumn
+highlight Comment cterm=italic ctermfg=darkgrey
+highlight StatusLine cterm=none ctermbg=none ctermfg=darkgrey
+highlight StatusLineNC cterm=none ctermbg=none ctermfg=darkgrey
+highlight Title cterm=none ctermfg=darkgrey
+highlight TabLineFill cterm=none
+highlight TabLine cterm=none ctermfg=darkgrey ctermbg=none
+highlight ColorColumn ctermbg=darkgrey guibg=lightgrey
+highlight jsParensError ctermbg=NONE
+
+
 

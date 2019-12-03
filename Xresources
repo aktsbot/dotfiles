@@ -1,6 +1,6 @@
-Xft.autohint: 0
+Xft.autohint: 1
 Xft.antialias: 1
-Xft.hinting: true
+Xft.hinting: 1
 Xft.hintstyle: hintslight
 Xft.dpi: 96
 Xft.rgba: rgb
@@ -8,118 +8,54 @@ Xft.lcdfilter: lcddefault
 
 Xcursor.theme: Adwaita
 
-URxvt.font: xft:Monospace:size=10                  
-URxvt.letterSpace: -1 
+#define base00 #333333
+#define base01 #393939
+#define base02 #515151
+#define base03 #747369
+#define base04 #a09f93
+#define base05 #d3d0c8
+#define base06 #e8e6df
+#define base07 #f2f0ec
+#define base08 #f2777a
+#define base09 #f99157
+#define base0A #ffcc66
+#define base0B #99cc99
+#define base0C #66cccc
+#define base0D #6699cc
+#define base0E #cc99cc
+#define base0F #d27b53
 
-URxvt.jumpScroll: true                                           
-URxvt.skipScroll: true                                           
-URxvt.saveLines: 32768                                           
-URxvt.scrollBar: false                                           
-URxvt.background: black                                          
-URxvt.foreground: lightgrey                                      
-URxvt.internalBorder: 3                                          
-URxvt.cursorBlink: 0                                             
-URxvt.termName: xterm-256color                                   
-URxvt.visualBell: off  
-URxvt.underlineURLs: false  
-URxvt.urlLauncher: google-chrome                                 
-URxvt.urgentOnBell: true                                         
-URxvt.scrollstyle: next 
+*.foreground:   base05
+*.background:   base00
+*.cursorColor:  base05
 
-URxvt*color0  : #2E3436                                                                           
-URxvt*color8  : #555753                                                                           
+*.color0:       #000000
+*.color1:       base08
+*.color2:       base0B
+*.color3:       base0A
+*.color4:       base0D
+*.color5:       base0E
+*.color6:       base0C
+*.color7:       base05
 
-! red                                                                                             
-URxvt*color1  : #CC0000                                                                           
-URxvt*color9  : #EF2929                                                                           
-! green                                                                                           
-URxvt*color2  : #4E9A06                                                                           
-URxvt*color10 : #8AE234                                                                           
-! yellow                                                                                          
-URxvt*color3  : #C4A000                                                                           
-URxvt*color11 : #FCE94F                                                                           
-! blue                                                                                            
-URxvt*color4  : #3465A4                                                                           
-URxvt*color12 : #729FCF                                                                           
-! magenta                                                                                         
-URxvt*color5  : #EF33C0                                                                           
-URxvt*color13 : #EE38DA                                                                           
-! cyan                                                                                            
-URxvt*color6  : #04B5B8                                                                           
-URxvt*color14 : #34E2E2                                                                           
-! white                                                                                           
-URxvt*color7  : #D3D7CF                                                                           
-URxvt*color15 : #EEEEEC 
+*.color8:       base03
+*.color9:       base08
+*.color10:      base0B
+*.color11:      base0A
+*.color12:      base0D
+*.color13:      base0E
+*.color14:      base0C
+*.color15:      base07
 
-! xcolorsel ------------------------------------------------------------
-xcolorsel*Background: grey20
-xcolorsel*Foreground: grey80
-xcolorsel*Font: -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
-xcolorsel.geometry: 399x595
-xcolorsel*displayFormat: #rrggbb
-xcolorsel*maxRows: 99
-
-! xfontsel -------------------------------------------------------------
-xfontsel*Background: grey20
-xfontsel*Foreground: grey80
-
-! xosview --------------------------------------------------------------
-xosview*font: -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
-xosview*background: grey20
-xosview*foreground: grey80
-xosview*net: true
-xosview*netIface: eth0
+*.color16:      base09
+*.color17:      base0F
+*.color18:      base01
+*.color19:      base02
+*.color20:      base04
+*.color21:      base06
 
 
-! xclock ---------------------------------------------------------------
-xclock*update: 1
-xclock*analog: false
-xclock*foreground: grey60
-xclock*background: black
-xclock*font: -*-fixed-*-*-*-*-8-*-*-*-*-*-*-*
-
-! xcalc ----------------------------------------------------------------
-xcalc*geometry: 200x275
-xcalc.ti.bevel.background: #111111
-xcalc.ti.bevel.screen.background: #000000
-xcalc.ti.bevel.screen.DEG.background: #000000
-xcalc.ti.bevel.screen.DEG.foreground: LightSeaGreen
-xcalc.ti.bevel.screen.GRAD.background: #000000
-xcalc.ti.bevel.screen.GRAD.foreground: LightSeaGreen
-xcalc.ti.bevel.screen.RAD.background: #000000
-xcalc.ti.bevel.screen.RAD.foreground: LightSeaGreen
-xcalc.ti.bevel.screen.INV.background: #000000
-xcalc.ti.bevel.screen.INV.foreground: Red
-xcalc.ti.bevel.screen.LCD.background: #000000
-xcalc.ti.bevel.screen.LCD.foreground: LightSeaGreen
-xcalc.ti.bevel.screen.LCD.shadowWidth: 0
-xcalc.ti.bevel.screen.M.background: #000000
-xcalc.ti.bevel.screen.M.foreground: LightSeaGreen
-xcalc.ti.bevel.screen.P.background: #000000
-xcalc.ti.bevel.screen.P.foreground: Yellow
-xcalc.ti.Command.foreground: White
-xcalc.ti.Command.background: #777777
-xcalc.ti.button5.background: Orange3
-xcalc.ti.button19.background: #611161
-xcalc.ti.button18.background: #611161
-xcalc.ti.button20.background: #611111
-!uncomment to change label on division button
-!xcalc.ti.button20.label:      /
-xcalc.ti.button25.background: #722222
-xcalc.ti.button30.background: #833333
-xcalc.ti.button35.background: #944444
-xcalc.ti.button40.background: #a55555
-xcalc.ti.button22.background: #222262
-xcalc.ti.button23.background: #222262
-xcalc.ti.button24.background: #222272
-xcalc.ti.button27.background: #333373
-xcalc.ti.button28.background: #333373
-xcalc.ti.button29.background: #333373
-xcalc.ti.button32.background: #444484
-xcalc.ti.button33.background: #444484
-xcalc.ti.button34.background: #444484
-xcalc.ti.button37.background: #555595
-xcalc.ti.button38.background: #555595
-xcalc.ti.button39.background: #555595
-XCalc*Cursor: hand2
-XCalc*ShapeStyle: rectangle
+st.font: Monospace:size=10
+st.borderpx: 1
+st.bold_font: 1
+st.termname: xterm-256color
