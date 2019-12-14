@@ -14,7 +14,7 @@ i3lock
 gsimplecal
 deadbeef
 
-# some others
+# others
 xrdb
 xset
 compton
@@ -26,3 +26,5 @@ xsetroot
 setxkbmap
 ConsoleKit2
 dbus
+i3
+firefox
