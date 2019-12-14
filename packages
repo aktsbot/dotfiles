@@ -14,3 +14,15 @@ i3lock
 gsimplecal
 deadbeef
 
+# some others
+xrdb
+xset
+compton
+dunst
+feh
+xbacklight
+redshift
+xsetroot
+setxkbmap
+ConsoleKit2
+dbus
