@@ -1,4 +1,0 @@
-#!/bin/sh
-
-#env GTK_THEME=Adwaita firefox
-firefox
