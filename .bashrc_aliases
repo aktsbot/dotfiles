@@ -1,0 +1,22 @@
+alias gping="ping -c 3 1.1.1.1"
+alias v="nvim"
+alias ll="ls -alF"
+alias ls="ls -aF"
+alias l="ll"
+alias q="exit"
+alias t="tmux"
+alias vvim="nvim ~/.config/nvim/init.vim"
+alias vi3="nvim ~/.config/i3/config"
+
+alias code="code-oss"
+alias gst="git status"
+alias gaa="git add -A"
+alias gcm="git commit -m"
+
+alias pkg_search="xbps-query -Rs "
+alias pkg_install="sudo xbps-install "
+alias pkg_update="sudo xbps-install -S"
+alias pkg_upgrade="sudo xbps-install -Su"
+alias pkg_remove="sudo xbps-remove -R"
+
+alias serve_me="python -m SimpleHTTPServer"
