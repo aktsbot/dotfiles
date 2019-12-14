@@ -1,0 +1,4 @@
+#!/bin/sh
+
+dmenu_run \
+  -p "Run:" -l 10 -fn "Monospace:size=10"
