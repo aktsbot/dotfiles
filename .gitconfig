@@ -1,0 +1,12 @@
+[alias]
+  diff-remote = diff origin..master
+  ff = pull --ff-only
+  graph = log --oneline --all --graph --decorate
+[push]
+  default = simple
+[diff]
+  compaction-heuristic = true
+  noprefix = true
+[rebase]
+  autostash = true
+
