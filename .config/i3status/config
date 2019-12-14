@@ -1,0 +1,50 @@
+general {
+        colors = true
+        interval = 10
+	      color_separator = "#EEEEEE"
+        color_good = "#00FF00"
+        color_degraded = "#FFFB00"
+        color_bad = "#FF000D"
+	      interval = 5
+}
+
+#order += "wireless wlp3s0"
+order += "battery 0"
+#order += "load"
+#order += "cpu_temperature cpu0" 
+#order += "cpu_temperature acpitz0"
+order += "tztime local"
+
+cpu_temperature cpu0 {
+        format = "CPU: %degrees C"
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
+}
+
+cpu_temperature acpitz0 {
+        format = "TZ: %degrees C" 
+}
+
+wireless wlp3s0 {
+        format_up = "W: %essid (%signal) %ip"
+        format_down = "W: down"
+}
+
+load {
+    format = "%1min/%5min/%15min"
+}
+
+battery 0 {
+	#format = "%status %percentage %remaining"
+	format = "%status %percentage"
+	integer_battery_capacity = true
+	last_full_capacity = true
+	low_threshold = 15
+	status_chr = "C"
+	status_bat = "B"
+	status_unk = "?"
+	status_full = "F"
+}
+
+tztime local {
+	format = "%Y-%m-%d %H:%M:%S"
+}
