@@ -1,0 +1,16 @@
+# these are the apps that the i3 config refers to:
+# I think pactl comes with pulseaudio.
+xst 
+dmenu
+pavucontrol
+xfce4-power-manager
+thunar
+clipit
+volumeicon
+xautolock
+qutebrowser
+code-oss
+i3lock
+gsimplecal
+deadbeef
+
