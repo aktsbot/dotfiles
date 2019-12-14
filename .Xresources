@@ -1,0 +1,17 @@
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 96
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+Xcursor.theme: Adwaita
+
+#include "/home/akts/.config/xcolors/base16-drewdevault"
+
+st.font: Monospace:size=10
+st.borderpx: 1
+st.bold_font: 1
+st.termname: xterm-256color
+
