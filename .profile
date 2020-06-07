@@ -23,3 +23,6 @@ export GTK_CSD=0
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export GTK_OVERLAY_SCROLLING=0
 export GDK_CORE_DEVICE_EVENTS=1
+
+# long date format in ls
+export TIME_STYLE=long-iso
