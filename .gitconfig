@@ -1,7 +1,17 @@
+[user]
+	email = box.ashishk@gmail.com
+  name = aktsbot
+[core]
+  editor = vim
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
   diff-remote = diff origin..master
   ff = pull --ff-only
-  graph = log --oneline --all --graph --decorate
+  fixup = rebase -i HEAD~5
+  ls = log --oneline --all --graph --decorate
+  graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)%C(reset)%n%x20%s%n"
+[color]
+  ui = auto
 [push]
   default = simple
 [diff]
@@ -10,3 +20,30 @@
 [rebase]
   autostash = true
 
+[color "diff"]
+  plain = normal
+  meta = bold
+  frag = cyan bold
+  old = red bold
+  new = green bold
+  commit = yellow bold
+  whitespace = black red
+[color "branch"]
+  current = green bold
+  local = normal
+  remote = red bold
+  plain = normal
+[color "status"]
+  header = normal
+  added = red bold
+  updated = green bold
+  changed = yellow bold
+  untracked = magenta bold
+  nobranch = red
+[color "grep"]                                                                  
+  match = yellow bold
+[color "interactive"]                                                           
+  prompt = normal                                                               
+  header = black bold                                                           
+  help = magenta bold                                                           
+  error = red bold
