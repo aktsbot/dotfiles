@@ -5,6 +5,8 @@
 These are my personal configs for the software I use on my home and work machines. 
 I run [dwm](https://dwm.suckless.org/) on top of [Voidlinux](https://voidlinux.org/).
 
+![preview](https://www.aktsbot.in/pub/scrots/dwm_nord.png)
+
 ## Quick dwm setup guide
 
 - Get the source `git clone https://git.suckless.org/dwm --depth=1`
