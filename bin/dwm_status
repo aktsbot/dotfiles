@@ -1,0 +1,14 @@
+#!/bin/sh                                                                       
+                                                                                
+get_line() {                                                                    
+  BAT=$(bat)                                                                    
+  CLOCK=$(date "+%H:%M")                                                        
+                                                                                
+  echo "$BAT $CLOCK"                                                            
+}                                                                               
+                                                                                
+while true                                                                      
+do                                                                              
+  xsetroot -name "$(get_line)"                                                  
+  sleep 10s                                                                     
+done 
