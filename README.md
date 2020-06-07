@@ -21,6 +21,12 @@ I run [dwm](https://dwm.suckless.org/) on top of [Voidlinux](https://voidlinux.o
   In normal dwm, all workspaces/tags change mode, if we change mode in any one tag. This patch
   applies modes per tag, so I can have tiling on one and monocle on the other.
 - To apply patch `$ patch -p1 < dwm-pertag-6.2.diff`
+- To build and install dwm
+  ```
+  $ make clean
+  $ make
+  $ sudo make install
+  ``` 
 
 ## Install these first!
 
