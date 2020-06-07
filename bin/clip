@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# solarized
 #NORMAL_BACKGROUND="#002b36"
 #NORMAL_FOREGROUND="#839496"
 #SELECTED_BACKGROUND="#073642"
@@ -12,12 +11,15 @@ NORMAL_FOREGROUND="#d8dee9"
 SELECTED_BACKGROUND="#4C566A"                                                   
 SELECTED_FOREGROUND="#e5e9f0"
 
-dmenu_run \
-  -p "Run:" -fn "Monospace:size=10" -l 10 \
+clipmenu \
+  -p "> " \
+  -i -fn Monospace:size=10 \
   -nb "$NORMAL_BACKGROUND" \
   -nf "$NORMAL_FOREGROUND" \
   -sb "$SELECTED_BACKGROUND" \
   -sf "$SELECTED_FOREGROUND"
 
-#dmenu_run \
-#  -p "Run:" -fn "Monospace:size=10" -l 10
+#clipmenu \
+#  -p "> " \
+#  -i -fn Monospace:size=10
+ 

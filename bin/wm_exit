@@ -1,23 +1,24 @@
 #!/bin/sh
 
-# solarized
-#NORMAL_BACKGROUND="#002b36"
-#NORMAL_FOREGROUND="#839496"
-#SELECTED_BACKGROUND="#073642"
-#SELECTED_FOREGROUND="#93a1a1"
-
 # nord
 NORMAL_BACKGROUND="#2e3440"                                                     
 NORMAL_FOREGROUND="#d8dee9"                                                     
 SELECTED_BACKGROUND="#4C566A"                                                   
 SELECTED_FOREGROUND="#e5e9f0"
 
-dmenu_run \
-  -p "Run:" -fn "Monospace:size=10" -l 10 \
+alias WM_EXIT_DMENU='dmenu -fn "Monospace:size=10" -p "Quit? " \
   -nb "$NORMAL_BACKGROUND" \
   -nf "$NORMAL_FOREGROUND" \
   -sb "$SELECTED_BACKGROUND" \
-  -sf "$SELECTED_FOREGROUND"
+  -sf "$SELECTED_FOREGROUND"'
 
-#dmenu_run \
-#  -p "Run:" -fn "Monospace:size=10" -l 10
+RET=$(echo "poweroff\nreboot\nexit\ncancel" | WM_EXIT_DMENU)
+
+echo $RET
+
+case $RET in
+	poweroff) sudo poweroff ;;
+	reboot) sudo reboot ;;
+	exit) pkill X ;;
+	*) ;;
+esac
