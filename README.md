@@ -1,10 +1,14 @@
 # dotfiles
 
-- [get](https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy) `diff-so-fancy` 
+- [Get](https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy) `diff-so-fancy` 
   and add it to `$HOME/bin` or in `$PATH`. 
-- [get](https://github.com/muennich/urxvt-perls) `clipboard,url-select,keyboard-select` perl scripts for urxvt, and add 
+- [Get](https://github.com/muennich/urxvt-perls) `clipboard,url-select,keyboard-select` perl scripts for urxvt, and add 
   them in the folder `~/.urxvt/ext`.
-
+- Install `vim-plug` for neovim
+  ```
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  ```
 
 These are my personal configs for the software I use on my home and work machines.
 I saw one of Drew DeVault's [live streams](https://live.drewdevault.com/) and was
