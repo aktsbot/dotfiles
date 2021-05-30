@@ -5,7 +5,7 @@
 These are my personal configs for the software I use on my home and work machines. 
 I run [dwm](https://dwm.suckless.org/) on top of [Voidlinux](https://voidlinux.org/).
 
-![preview](https://www.aktsbot.in/pub/scrots/dwm_nord.png)
+![preview](https://www.aktsbot.in/pub/scrots/dwm_suckless_01.png)
 
 ## Quick dwm setup guide
 
@@ -19,7 +19,7 @@ I run [dwm](https://dwm.suckless.org/) on top of [Voidlinux](https://voidlinux.o
   - media key controls
   - [pertag](https://dwm.suckless.org/patches/pertag/) and [systray](https://dwm.suckless.org/patches/systray/) patches applied.
   - refer the [README](https://github.com/aktsbot/suckless/blob/main/dwm/README) for more info
-  - uses a patched [st](https://github.com/aktsbot/suckless/tree/main/st) as main terminal
+  - uses a patched [st](https://github.com/aktsbot/suckless/tree/main/st) as the main terminal.
 
 ## Install these first!
 
