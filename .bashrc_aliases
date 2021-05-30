@@ -1,11 +1,13 @@
+alias ip="ip -color=auto"
 alias gping="ping -c 3 1.1.1.1"
 alias v="nvim"
-alias ls="ls -aF --color=auto"                                                  
-alias ll="ls -alF"                                                              
+alias ls="ls -aF --color=auto"
+alias ll="ls -alF"
 alias l="ll"
-#alias ll="ls -alF"
-#alias ls="ls -aF"
-#alias l="ll"
+#alias ls='ls -aF'
+#alias ll='ls -hl'
+#alias l='ll'
+alias myip="ip route get 8.8.8.8 2>/dev/null|grep -Eo 'src [0-9.]+'|grep -Eo '[0-9.]+'"
 alias q="exit"
 alias t="tmux -2 -u"
 alias vvim="nvim ~/.config/nvim/init.vim"
@@ -16,47 +18,56 @@ alias gst="git status"
 alias gaa="git add -A"
 alias gcm="git commit -m"
 
+alias diff='diff --color=auto'
+
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+
+alias grep='grep --color=auto --exclude-dir=node_modules'
+alias fgrep='fgrep --color=auto --exclude-dir=node_modules'
+alias egrep='egrep --color=auto --exclude-dir=node_modules'
+alias igrep='grep -i'
+alias rgrep='grep -r'
+
 alias pkg_search="xbps-query -Rs "
 alias pkg_install="sudo xbps-install "
 alias pkg_update="sudo xbps-install -S"
-alias pkg_upgrade="sudo xbps-install -Su"
+alias pkg_upgrade="sudo xbps-install -u"
 alias pkg_remove="sudo xbps-remove -R"
 
-alias serve_me="python -m SimpleHTTPServer"
+#alias serve_me="python2 -m SimpleHTTPServer"
+alias serve_me="python3 -m http.server"
+alias of="lsof -nP +c 15 | grep LISTEN"
 
-# A nicer ps-output. We need to specify user:12 because otherwise usernames     
-# such as 'sphinxsearch' or 'libvirt-qemu' are displayed as user IDs. According 
-# to the procps source, this is specified in The Open Group Base Specifications 
-# Issue 6 (IEEE Std 1003.1, 2004 Edition).                                      
-alias p='ps -A f -o user:12,pid,priority,ni,pcpu,pmem,args'                     
-alias pw='pwgen -s 23 1'                                                        
-                                                                                
-# use \rm to use original rm and not the alias                                  
-alias cp='cp -iv'                                                               
-alias mv='mv -iv'                                                               
-alias rm='rm -Iv'                                                               
-                                                                                
-# will download to $PWD                                                         
+# A nicer ps-output. We need to specify user:12 because otherwise usernames
+# such as 'sphinxsearch' or 'libvirt-qemu' are displayed as user IDs. According
+# to the procps source, this is specified in The Open Group Base Specifications
+# Issue 6 (IEEE Std 1003.1, 2004 Edition).
+alias p='ps -A f -o user:12,pid,priority,ni,pcpu,pmem,args'
+alias pw='pwgen -s 23 1'
+
+# use \rm to use original rm and not the alias
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -Iv'
+
+# will download to $PWD
 alias ytaud='youtube-dl --add-metadata -ci --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
-alias ytvid='youtube-dl --add-metadata --no-playlist --no-part --write-description --newline --prefer-free-fo
-                                                                                
-# disable images, scripts                                                       
-alias surf="surf -giKMnps"                                                      
-                                                                                
-# not an alias, but wth                                                         
-man() {                                                                         
-  env \                                                                         
-  LESS_TERMCAP_mb=$(tput bold; tput setaf 6) \                                  
-  LESS_TERMCAP_md=$(tput bold; tput setaf 6) \                                  
-  LESS_TERMCAP_me=$(tput sgr0) \                                                
-  LESS_TERMCAP_se=$(tput rmso; tput sgr0) \                                     
-  LESS_TERMCAP_ue=$(tput rmul; tput sgr0) \                                     
-  LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 4) \                       
-  LESS_TERMCAP_mr=$(tput rev) \                                                 
-  LESS_TERMCAP_mh=$(tput dim) \                                                 
-  LESS_TERMCAP_ZN=$(tput ssubm) \                                               
-  LESS_TERMCAP_ZV=$(tput rsubm) \                                               
-  LESS_TERMCAP_ZO=$(tput ssupm) \                                               
-  LESS_TERMCAP_ZW=$(tput rsupm) \                                               
-    man "$@"                                                                    
-} 
+alias ytvid='youtube-dl --add-metadata --no-playlist --no-part --write-description --newline --prefer-free-formats -o "%(title)s.%(ext)s" '
+
+# disable images, scripts
+alias surf="surf -giKMnps"
+
+# not an alias, but wth
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    command man "$@"
+}
+
+
+

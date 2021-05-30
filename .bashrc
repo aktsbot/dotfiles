@@ -8,7 +8,7 @@ shopt -s no_empty_cmd_completion
 shopt -s histappend cmdhist
 shopt -s globstar
 shopt -s autocd
-stty -ixon # removes ctrl+s, ctrl+q 
+stty -ixon # removes ctrl+s, ctrl+q
 
 HISTSIZE= HISTFILESIZE= # Infinite history.
 
@@ -16,64 +16,61 @@ complete -cf sudo
 complete -cf man
 
 # less for binary files
-[ -x /usr/bin/lesspipe    ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # bash completion
 [ -f /etc/bash/bashrc.d/bash_completion.sh ] && . /etc/bash/bashrc.d/bash_completion.sh
-# personal aliases
+
+# colors for file listings
+[ -f ~/.dir_colors ] && eval $(dircolors ~/.dir_colors)
+
 [ -f "$HOME/.bashrc_aliases" ] && \. "$HOME/.bashrc_aliases"
-# colors in ls
-[ -f "$HOME/.dircolors" ] && eval "$(dircolors $HOME/.dircolors)"
 
+# prompt
+git_prompt() {
+    branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
 
-# prompt to have git info
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWCOLORHINTS=1
-GIT_PS1_SHOWUPSTREAM="auto"
-source ~/.git-prompt.sh
+    [ "$(git status --porcelain 2> /dev/null)" != "" ] && indicator="*"
 
-# colors
-#c_white='\e[1;37m'
-#c_green='\e[1;32m'
-#c_red='\e[1;31m'
-#c_normal='\e[0m'
-c_white='\[$(tput setaf 7)\]'
-c_green='\[$(tput setaf 2)\]'
-c_red='\[$(tput setaf 1)\]'
-c_blue='\[$(tput setaf 4)\]'
-c_cyan='\[$(tput setaf 6)\]'
-c_black='\[$(tput setaf 0)\]'
-c_purple='\[$(tput setaf 5)\]'
-c_yellow='\[$(tput setaf 3)\]'
-c_reset='\[$(tput sgr0)\]'
-c_bold='\[$(tput bold)\]'
+    [ "$branch" != "" ] \
+         && echo "($branch$indicator)"
+}
 
-#export PS1="$c_white\u$c_normal$c_green \w$c_red\$(__git_ps1 \" (%s)\")$c_normal\$ "
-#export PS1='\w$(__git_ps1 " (%s)")\$ '
-#export PS1="$c_green\[\e[1m\]\w$c_red\[\e[1m\]\$(__git_ps1 \" (%s)\")$c_white\[\e[1m\]\$$c_reset "
-export PS1="$c_blue\w$c_yellow\$(__git_ps1 \" (%s)\")$c_white\$$c_reset "
+_PS1_CLR=$'\e[0m'
+_PS1_YLW=$'\e[01;33m'
+_PS1_BLU=$'\e[01;34m'
 
-# xero prompt def
-#PS1="$c_cyan$c_bold["
-#PS1+="$c_reset\w"
-#PS1+="$c_cyan$c_bold]$c_reset"
-#PS1+="$c_yellow\$(__git_ps1 \"$c_cyan―$c_bold[$c_reset$c_yellow%s$c_cyan$c_bold]\")"
-#PS1+="$c_reset―― ‒ "
-#export PS1
+# fancier colors if in 256 support is present
+case "$TERM" in
+*-256color*)
+  _PS1_YLW=$'\e[38;5;184m'
+  _PS1_BLU=$'\e[38;5;27m'
+  ;;
+*-88color|rxvt-unicode)
+  _PS1_YLW=$'\e[38;5;56'
+  _PS1_BLU=$'\e[38;5;23'
+  ;;
+esac
 
+#export PS1="\w\$(git_prompt)\$ "
+export PS1="\[$_PS1_BLU\]\w\[$_PS1_CLR\]\[$_PS1_YLW\]\$(git_prompt)\[$_PS1_CLR\]\$ "
 export PS2="> "
 
 # terminal title
 case "$TERM" in
-xterm*|rxvt*)
+xterm*|rxvt*|st*)
     PS1="\[\e]0;\h:\w\a\]$PS1"
     ;;
 *)
     ;;
 esac
 
-
 # load personal configs and aliases, if any!
 [ -f "$HOME/.bashrc_mystuff" ] && \. "$HOME/.bashrc_mystuff"
+
+# long date format in ls
+export TIME_STYLE=long-iso
+
+# completions and keys for fzf
+[ -f "/usr/share/doc/fzf/completion.bash" ] && \. "/usr/share/doc/fzf/completion.bash"
+[ -f "/usr/share/doc/fzf/key-bindings.bash" ] && \. "/usr/share/doc/fzf/key-bindings.bash"
