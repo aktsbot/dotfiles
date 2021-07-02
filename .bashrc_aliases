@@ -1,12 +1,9 @@
 alias ip="ip -color=auto"
 alias gping="ping -c 3 1.1.1.1"
 alias v="nvim"
-alias ls="ls -aF --color=auto"
-alias ll="ls -alF"
-alias l="ll"
-#alias ls='ls -aF'
-#alias ll='ls -hl'
-#alias l='ll'
+alias ls='ls -aF'
+alias ll='ls -hl'
+alias l='ll'
 alias myip="ip route get 8.8.8.8 2>/dev/null|grep -Eo 'src [0-9.]+'|grep -Eo '[0-9.]+'"
 alias q="exit"
 alias t="tmux -2 -u"
