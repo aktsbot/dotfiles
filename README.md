@@ -2,7 +2,7 @@
 
 ## Intro
 
-These are my personal configs for the software I use on my home and work machines. 
+These are my personal configs for the software I use on my home and work machines.
 I run [dwm](https://dwm.suckless.org/) on top of [Voidlinux](https://voidlinux.org/).
 
 ![preview](https://www.aktsbot.in/pub/scrots/dwm_suckless_02.png)
@@ -13,7 +13,7 @@ I run [dwm](https://dwm.suckless.org/) on top of [Voidlinux](https://voidlinux.o
 - Install build deps `$ sudo xbps-install -S base-devel libX11-devel libXft-devel libXinerama-devel`
 - Run `make` in the source folder once, to see if compilation is a go!
 - A `config.h` is created if we do the above. If not copy over `config.def.h` as `config.h`
-- The [build of dwm](https://github.com/aktsbot/suckless/tree/main/dwm) which I run has 
+- The [build of dwm](https://github.com/aktsbot/suckless/tree/main/dwm) which I run has
   - i3-like keybinds
   - media key controls
   - [pertag](https://dwm.suckless.org/patches/pertag/) and [systray](https://dwm.suckless.org/patches/systray/) patches applied.
@@ -32,7 +32,13 @@ I run [dwm](https://dwm.suckless.org/) on top of [Voidlinux](https://voidlinux.o
 
 - For installing custom fonts, put them in `$HOME/.fonts` and do `$ fc-cache -vf`
 - For themes and icons/cursors: `$HOME/.themes` and `$HOME/.icons`
-- The `.terminfo` files are needed for italics in tmux. Install a terminfo file 
-with`tic -sx tmux-256color-italic.terminfo`.
+- The `.terminfo` files are needed for italics in tmux. Install a terminfo file
+  with`tic -sx tmux-256color-italic.terminfo`.
+
+## Thanks
+
+- [liskin](https://github.com/liskin/dotfiles)
+- [mvolkmann](https://github.com/mvolkmann/MyUnixEnv)
+- [craftzdog](https://github.com/craftzdog/dotfiles-public)
 
 `happy hacking`
