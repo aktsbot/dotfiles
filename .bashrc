@@ -36,7 +36,24 @@ git_prompt() {
          && echo "($branch$indicator)"
 }
 
-export PS1="\w\$(git_prompt)\$ "
+_PS1_CLR=$'\e[0m'
+_PS1_YLW=$'\e[01;33m'
+_PS1_BLU=$'\e[01;34m'
+
+# fancier colors if in 256 support is present
+case "$TERM" in
+*-256color*)
+  _PS1_YLW=$'\e[38;5;184m'
+  _PS1_BLU=$'\e[38;5;27m'
+  ;;
+*-88color|rxvt-unicode)
+  _PS1_YLW=$'\e[38;5;56'
+  _PS1_BLU=$'\e[38;5;23'
+  ;;
+esac
+
+#export PS1="\w\$(git_prompt)\$ "
+export PS1="\[$_PS1_BLU\]\w\[$_PS1_CLR\]\[$_PS1_YLW\]\$(git_prompt)\[$_PS1_CLR\]\$ "
 export PS2="> "
 
 # terminal title
