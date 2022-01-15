@@ -8,6 +8,7 @@ let g:colors_name = "ront"
 hi Statement gui=none
 hi Type gui=none cterm=none guifg=#87d787
 hi Comment cterm=italic ctermfg=243 gui=italic guifg=#767676
+"hi Comment cterm=none ctermfg=243 gui=none guifg=#767676
 hi Constant ctermfg=6 guifg=#5fafd7 gui=none
 hi String ctermfg=12 guifg=#005fff
 hi Function ctermfg=197 guifg=#ff005f
@@ -35,7 +36,7 @@ hi FoldColumn      ctermfg=67   ctermbg=233 cterm=none gui=none guibg=#121212 gu
 hi Folded          ctermfg=240  ctermbg=235 cterm=bold gui=bold guibg=#262626 guifg=#585858
 hi DiffAdd       ctermbg=4 guibg=#005f00
 hi DiffChange    ctermbg=5 guibg=#0000ee
-hi DiffDelete    ctermfg=8 ctermbg=6 guifg=#7F7F7F guibg=#00CDCD
+hi DiffDelete    ctermfg=8 ctermbg=6 gui=bold guifg=#f0f0f0 guibg=#00CDCD
 hi DiffText      cterm=bold ctermbg=darkred gui=bold guibg=#5f0000
 hi MatchParen cterm=bold ctermbg=3 ctermfg=1 gui=bold guibg=#CDCD00 guifg=#1C1C1C
 
