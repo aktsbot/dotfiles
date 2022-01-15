@@ -7,6 +7,11 @@ I run [dwm](https://dwm.suckless.org/) on top of [Voidlinux](https://voidlinux.o
 
 ![preview](https://www.aktsbot.in/pub/scrots/dwm_suckless_02.png)
 
+I started to play around with [swaywm](https://swaywm.org) on [debian
+11](https://debian.org). The [wayland directory](wayland) has configs for it.
+My blog has a [write up](https://blog.aktsbot.in/swaywm-on-debian-11.html) on
+how to set it all up on a minimal debian install.
+
 ## Quick dwm setup guide
 
 - Get the source `git clone https://git.suckless.org/dwm --depth=1`
