@@ -42,6 +42,8 @@ how to set it all up on a minimal debian install.
 
 ## Thanks
 
+- [Jake Wiesler](https://www.jakewiesler.com/blog/getting-started-with-vim)
+- [Neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch)
 - [liskin](https://github.com/liskin/dotfiles)
 - [mvolkmann](https://github.com/mvolkmann/MyUnixEnv)
 - [craftzdog](https://github.com/craftzdog/dotfiles-public)
