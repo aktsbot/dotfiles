@@ -6,7 +6,7 @@
 set encoding=utf-8
 set fileencoding=utf-8
 set clipboard=unnamedplus
-set shiftwidth=2 tabstop=2 softtabstop=2
+set shiftwidth=4 tabstop=4 softtabstop=4
 set smarttab expandtab
 set smartindent
 set number relativenumber
@@ -25,13 +25,9 @@ set smartcase
 set formatoptions-=cro
 " dont show mode as lightline displays this
 set noshowmode
-
-syntax on
-filetype plugin indent on
-set colorcolumn=80
-set background=dark
-set termguicolors
-colorscheme ront
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+set updatetime=50
 
 " -- Plugins
 call plug#begin('~/.config/nvim/plugged')
@@ -68,16 +64,61 @@ Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 call plug#end()
 
+syntax on
+filetype plugin indent on
+set colorcolumn=80
+set background=dark
+set termguicolors
+colorscheme ront
+
 lua require('user')
 
 " remaps
 let mapleader = ' '
-
-nnoremap <leader>h :wincmd h<Cr>
-nnoremap <leader>j :wincmd j<Cr>
-nnoremap <leader>k :wincmd k<Cr>
-nnoremap <leader>l :wincmd l<Cr>
 nnoremap <C-p> :Telescope find_files<Cr>
+
+" Increment/decrement
+" 9 3
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" Select all
+nmap <C-a> gg<S-v>G
+
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+" Open current directory
+nmap te :tabedit 
+nmap <S-Tab> :tabprev<Return>
+nmap <Tab> :tabnext<Return>
+
+" Split window
+nmap ss :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+" Move window
+map s<left> <C-w>h
+map s<up> <C-w>k
+map s<down> <C-w>j
+map s<right> <C-w>l
+map sh <C-w>h
+map sk <C-w>k
+map sj <C-w>j
+map sl <C-w>l
+" Resize window
+nmap <C-w><left> <C-w><
+nmap <C-w><right> <C-w>>
+nmap <C-w><up> <C-w>+
+nmap <C-w><down> <C-w>-
 
 " stray spaces, tabs
 set listchars=eol:¬,tab:▸\ ,trail:•,extends:»,precedes:«,conceal:†,nbsp:␣

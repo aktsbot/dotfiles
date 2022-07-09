@@ -1,18 +1,19 @@
 general {
-        colors = true
-        interval = 10
-	      color_separator = "#EEEEEE"
-        color_good = "#00FF00"
-        color_degraded = "#FFFB00"
-        color_bad = "#FF000D"
-	      interval = 5
+  colors = true
+  interval = 10
+  color_separator = "#EEEEEE"
+  color_good = "#00FF00"
+  color_degraded = "#FFFB00"
+  color_bad = "#FF000D"
+    interval = 5
+  markup = "pango"
 }
 
 #order += "wireless wlp3s0"
-order += "battery 0"
 #order += "load"
 #order += "cpu_temperature cpu0" 
 #order += "cpu_temperature acpitz0"
+order += "battery 0"
 order += "tztime local"
 
 cpu_temperature cpu0 {
@@ -34,11 +35,11 @@ load {
 }
 
 battery 0 {
-	#format = "%status %percentage %remaining"
 	format = "%status %percentage"
+	#format = "<span foreground='#00D7AF'>%status %percentage</span>"
 	integer_battery_capacity = true
 	last_full_capacity = true
-	low_threshold = 15
+	low_threshold = 25
 	status_chr = "C"
 	status_bat = "B"
 	status_unk = "?"
@@ -46,5 +47,7 @@ battery 0 {
 }
 
 tztime local {
-	format = "%Y-%m-%d %H:%M:%S"
+    format = "%Y-%m-%d %H:%M"
+    #format = "<span foreground='#5FAF5F'>%time</span>"
+    #format_time = "%Y-%m-%d %H:%M"
 }

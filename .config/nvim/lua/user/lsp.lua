@@ -6,7 +6,7 @@ local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 
-local servers = { 'tsserver' }
+local servers = { 'tsserver', 'gopls' }
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
@@ -41,7 +41,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
         capabilities = capabilities,
-		on_attach = on_attach,
+		    on_attach = on_attach,
         flags = {
             debounce_text_changes = 150,
         }
@@ -52,7 +52,8 @@ end
 -- Null-ls
 null_ls.setup({
     sources = {
-        null_ls.builtins.formatting.prettier
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.gofmt
     },
     on_attach = function(client)
         if client.resolved_capabilities.document_formatting then

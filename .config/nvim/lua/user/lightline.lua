@@ -1,5 +1,6 @@
 vim.g.lightline = {
-	active = {
+	colorscheme = 'powerline',
+  active = {
 		left = {
 			{ 'mode', 'past' },
 			{ 'gitbranch', 'filename', 'modified' }

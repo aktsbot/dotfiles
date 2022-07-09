@@ -8,15 +8,14 @@ let g:colors_name = "ront"
 hi Statement gui=none
 hi Type gui=none cterm=none guifg=#87d787
 hi Comment cterm=italic ctermfg=243 gui=italic guifg=#767676
-"hi Comment cterm=none ctermfg=243 gui=none guifg=#767676
 hi Constant ctermfg=6 guifg=#5fafd7 gui=none
-hi String ctermfg=12 guifg=#005fff
+hi String ctermfg=12 guifg=#007ADC
 hi Function ctermfg=197 guifg=#ff005f
 hi Identifier ctermfg=81 cterm=none gui=none guifg=#00d7af
 hi Todo            ctermfg=196 ctermbg=226 cterm=bold gui=bold guibg=#ffff00 guifg=#ff0000
 hi ColorColumn ctermbg=233 guibg=#121212
-hi Pmenu        ctermfg=white ctermbg=4 cterm=none gui=none guifg=#ffffff guibg=#0000ee
-hi PmenuSel     ctermfg=white ctermbg=6 cterm=bold gui=bold guifg=#ffffff guibg=#00cdcd
+hi Pmenu        ctermfg=white ctermbg=4 cterm=none gui=none guifg=#aaaaaa guibg=#191919
+hi PmenuSel     ctermfg=white ctermbg=6 cterm=bold gui=bold guifg=#191919 guibg=#aaaaaa
 hi PmenuSbar    ctermbg=grey guibg=#808080
 hi PmenuThumb   ctermbg=white guibg=#ffffff
 hi PreProc      ctermfg=213 guifg=#ff87ff
@@ -38,7 +37,7 @@ hi DiffAdd       ctermbg=4 guibg=#005f00
 hi DiffChange    ctermbg=5 guibg=#0000ee
 hi DiffDelete    ctermfg=8 ctermbg=6 gui=bold guifg=#f0f0f0 guibg=#00CDCD
 hi DiffText      cterm=bold ctermbg=darkred gui=bold guibg=#5f0000
-hi MatchParen cterm=bold ctermbg=3 ctermfg=1 gui=bold guibg=#CDCD00 guifg=#1C1C1C
+hi MatchParen cterm=bold ctermbg=3 ctermfg=1 gui=bold guibg=#1C1C1C guifg=#CDCD00
 
 hi StatusLine ctermfg=231 ctermbg=237 cterm=none gui=none guibg=#3a3a3a guifg=#ffffff
 hi StatusLineNC ctermfg=16 ctermbg=237 cterm=none gui=NONE guifg=#000000 guibg=#3a3a3a
