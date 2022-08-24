@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+# fluxbox startup-script:
+#
+# Lines starting with a '#' are ignored.
+
+# Change your keymap:
+xmodmap "/home/akts/.Xmodmap"
+
+
+# Applications you want to run with fluxbox.
+# MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
+#
+# unclutter -idle 2 &
+# wmnd &
+# wmsmixer -w &
+# idesk &
+
+# Start DBUS session bus:
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+   eval $(dbus-launch --sh-syntax --exit-with-session)
+fi
+
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+
+#exec fluxbox
+
+fluxbox &
+fbpid=$!
+
+sleep 1
+{
+    xset b off &
+    setxkbmap -option caps:escape &
+    xset r rate 350 50 &
+    picom -b --dbus --config ~/.config/picom.conf &
+    (sleep 1s && fbsetbg -l) &
+    xfce4-clipman &
+    volumeicon &
+    (sleep 2s && nm-applet) &
+    (sleep 3s && xfce4-power-manager) &
+    conky &
+} &
+
+wait $fbpid
+
+# or if you want to keep a log:
+# exec fluxbox -log "/home/akts/.fluxbox/log"

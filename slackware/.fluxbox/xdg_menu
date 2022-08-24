@@ -1,0 +1,119 @@
+[submenu] (Accessories)
+  [exec] (Application Finder) {xfce4-appfinder}
+  [exec] (Character Map) {gucharmap}
+  [exec] (Engrampa Archive Manager) {engrampa }
+  [exec] (GVim) {gvim -f }
+  [exec] (HP Device Manager) {hp-toolbox}
+  [exec] (HP Scan Utility) {/usr/bin/hp-uiscan}
+  [exec] (Joe's Own Editor) {xterm -e /usr/bin/joe }
+  [exec] (Joe's Own Editor - EMACS Emulation) {xterm -e /usr/bin/jmacs }
+  [exec] (Joe's Own Editor - NANO/PICO Emulation) {xterm -e /usr/bin/jpico }
+  [exec] (Joe's Own Editor - WordStar Emulation) {xterm -e /usr/bin/jstar }
+  [exec] (Mousepad) {mousepad }
+  [exec] (Screenshot) {xfce4-screenshooter}
+  [exec] (gpa) {gpa }
+  [exec] (picom) {picom}
+[end] # (Accessories)
+[submenu] (Development)
+  [exec] (CMake) {cmake-gui }
+  [exec] (Data Display Debugger) {ddd}
+  [exec] (Emacs) {emacs }
+  [exec] (GTK Demo) {gtk4-demo}
+  [exec] (Glade) {glade }
+  [exec] (Icon Browser) {gtk4-icon-browser}
+  [exec] (Print Editor) {gtk4-print-editor }
+  [exec] (Qt5 Assistant) {assistant-qt5}
+  [exec] (Qt5 Designer) {designer-qt5}
+  [exec] (Qt5 Linguist) {linguist-qt5}
+  [exec] (Qt5 QDbusViewer) {qdbusviewer-qt5}
+  [exec] (Widget Factory) {gtk4-widget-factory}
+  [exec] (distcc monitor) {distccmon-gnome}
+[end] # (Development)
+[submenu] (Education)
+  [exec] (XaoS) {xaos}
+[end] # (Education)
+[submenu] (Games)
+  [exec] (Xboard) {xboard}
+  [exec] (eboard) {eboard}
+  [exec] (xsnow) {xsnow}
+[end] # (Games)
+[submenu] (Graphics)
+  [exec] (FontForge) {fontforge }
+  [exec] (GNU Image Manipulation Program) {gimp-2.10 }
+  [exec] (Geeqie) {geeqie -r }
+  [exec] (X PDF) {xpdf}
+  [exec] (XPaint) {xpaint }
+  [exec] (XSane) {xsane}
+  [exec] (xfig) {/usr/bin/xfig }
+[end] # (Graphics)
+[submenu] (Multimedia)
+  [exec] (Audacious) {audacious }
+  [exec] (EasyTAG) {easytag }
+  [exec] (MPlayer) {gmplayer }
+  [exec] (PulseAudio Volume Control) {pavucontrol}
+  [exec] (Qt V4L2 test Utility) {qv4l2}
+  [exec] (Qt V4L2 video capture utility) {qvidcap}
+  [exec] (QtAV Player) {Player -f }
+  [exec] (QtAV QML Player) {QMLPlayer -f }
+  [exec] (SimpleScreenRecorder) {simplescreenrecorder --logfile}
+  [exec] (VLC media player) {/usr/bin/vlc --started-from-file }
+  [exec] (XMMS) {xmms }
+  [exec] (xine) {xine }
+[end] # (Multimedia)
+[submenu] (Network)
+  [exec] (Chromium-ungoogled Web Browser) {/usr/bin/chromium-ungoogled }
+  [exec] (Firefox) {firefox }
+  [exec] (HexChat) {hexchat --existing }
+  [exec] (Internet Radio) {xterm -e soma}
+  [exec] (Pan) {pan }
+  [exec] (Pidgin) {pidgin}
+  [exec] (SeaMonkey) {/usr/bin/seamonkey}
+  [exec] (SeaMonkey Mail) {/usr/bin/seamonkey -mail}
+  [exec] (Thunderbird) {thunderbird}
+  [exec] (Zenmap) {zenmap }
+  [exec] (Zenmap (as root\)) {/usr/share/zenmap/su-to-zenmap.sh }
+  [exec] (gFTP) {gftp}
+  [exec] (lftp) {xterm -e lftp}
+  [exec] (wpa_gui) {kdesu wpa_gui}
+[end] # (Network)
+[submenu] (Office)
+  [exec] (Atril Document Viewer) {atril }
+  [exec] (LibreOffice) {libreoffice }
+  [exec] (LibreOffice Base) {libreoffice --base }
+  [exec] (LibreOffice Calc) {libreoffice --calc }
+  [exec] (LibreOffice Draw) {libreoffice --draw }
+  [exec] (LibreOffice Extension Manager) {unopkg gui }
+  [exec] (LibreOffice Impress) {libreoffice --impress }
+  [exec] (LibreOffice Math) {libreoffice --math }
+  [exec] (LibreOffice Writer) {libreoffice --writer }
+[end] # (Office)
+[submenu] (Settings)
+  [exec] (Advanced Network Configuration) {nm-connection-editor}
+  [exec] (Bluetooth Manager) {blueman-manager}
+  [exec] (Customize Look and Feel) {lxappearance}
+  [exec] (Fcitx Configuration) {fcitx-configtool}
+  [exec] (File Manager Settings) {thunar-settings}
+  [exec] (IBus Preferences) {ibus-setup}
+  [exec] (Power Manager) {xfce4-power-manager-settings}
+  [exec] (Removable Drives and Media) {thunar-volman-settings}
+  [exec] (Text Editor Settings) {mousepad --preferences}
+  [exec] (XScreenSaver) {xscreensaver-settings}
+  [exec] (Xfce Terminal Settings) {xfce4-terminal --preferences}
+[end] # (Settings)
+[submenu] (System)
+  [exec] (Bulk Rename) {thunar --bulk-rename }
+  [exec] (Fcitx) {fcitx}
+  [exec] (GParted) {/usr/bin/gparted }
+  [exec] (Htop) {xterm -e htop}
+  [exec] (Manage Printing) {/usr/bin/xdg-open http://localhost:631/}
+  [exec] (Print Settings) {system-config-printer}
+  [exec] (Task Manager) {xfce4-taskmanager}
+  [exec] (Thunar File Manager) {thunar }
+  [exec] (UXTerm) {uxterm}
+  [exec] (XTerm) {xterm}
+  [exec] (Xfce Terminal) {xfce4-terminal}
+  [exec] (conky) {conky --daemonize --pause=1}
+  [exec] (dconf Editor) {dconf-editor}
+  [exec] (rxvt-unicode) {urxvt}
+  [exec] (rxvt-unicode (256color\)) {urxvt256c}
+[end] # (System)

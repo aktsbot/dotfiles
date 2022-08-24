@@ -1,0 +1,12 @@
+! The following line will prevent styles from setting the background.
+background: unset
+
+menu.frame.font:                        snap-8
+menu.title.font:                        snap-8
+toolbar.clock.font:                     snap-8
+toolbar.workspace.font:                 snap-8
+toolbar.iconbar.focused.font:           snap-8
+toolbar.iconbar.unfocused.font:         snap-8
+window.font:                            snap-8
+!window.title.height:                    21
+
