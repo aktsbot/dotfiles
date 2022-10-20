@@ -1,12 +1,24 @@
 ! The following line will prevent styles from setting the background.
 background: unset
 
-menu.frame.font:                        snap-8
-menu.title.font:                        snap-8
-toolbar.clock.font:                     snap-8
-toolbar.workspace.font:                 snap-8
-toolbar.iconbar.focused.font:           snap-8
-toolbar.iconbar.unfocused.font:         snap-8
-window.font:                            snap-8
-!window.title.height:                    21
+!*.font:                                 Sans-9
+!menu.frame.font:                        mintsstrong-7
+!menu.title.font:                        mintsstrong-7:bold
+!toolbar.clock.font:                     mintsstrong-7:bold
+!toolbar.workspace.font:                 mintsstrong-7:bold
+!toolbar.iconbar.focused.font:           mintsstrong-7:bold
+!toolbar.iconbar.unfocused.font:         mintsstrong-7
+!window.font:                            mintsstrong-7:bold
 
+!window.title.height:                    20
+
+
+!window.font:                    -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
+!menu.frame.font:                -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
+!menu.title.font:                -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
+!toolbar.clock.font:             -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
+!toolbar.iconbar.focused.font:   -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
+!toolbar.iconbar.unfocused.font: -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
+!toolbar.workspace.font:         -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
+
+*.font: mintsstrong-7

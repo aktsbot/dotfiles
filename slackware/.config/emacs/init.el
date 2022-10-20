@@ -56,13 +56,18 @@
 (show-paren-mode 1)                     ;; shows matching parens or failure to match
 (global-auto-revert-mode 1)             ;; reload files that change on disk
 (column-number-mode 1)                  ;; show column numbers in mode line
-(global-hl-line-mode 1)                 ;; change the color of the line the cursor is on
 (global-display-line-numbers-mode)      ;; show line numbers
 
 (setq-default truncate-lines t)         ;; default to NOT wrapping long lines in display
 (tool-bar-mode 0)                       ;; hide the tool bar
 (menu-bar-mode 0)                       ;; hide the "File Edit..." menu
 (scroll-bar-mode -1)                    ;; hide the scroll bars
+
+;; custom themes path
+(add-to-list 'custom-theme-load-path "~/.config/emacs/themes")
+(load-theme 'default-black t)              ;; a good color scheme
+
+(setq-default frame-title-format '("Emacs - %b")) ;; title of the frame should be the filename
 
 (setq inhibit-startup-screen t)         ;; don't show the "splash" screen
 (setq initial-scratch-message           ;; put this text in the scratch buffer
@@ -83,11 +88,11 @@
 (setq create-lockfiles nil)
 
 ;;; buffers as tabs
-(setq tab-line-close-button-show nil)
-(setq tab-line-tabs-function 'tab-line-tabs-mode-buffers)
-(global-tab-line-mode t)
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
+;; (setq tab-line-close-button-show nil)
+;; (setq tab-line-tabs-function 'tab-line-tabs-mode-buffers)
+;; (global-tab-line-mode t)
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
 ;; Built-in project package
 ;;(require 'project)
@@ -163,21 +168,6 @@
 (use-package company
   :ensure t
   :config (global-company-mode t))
-
-(use-package modus-themes
-  :ensure
-  :init
-  ;; Add all your customizations prior to loading the themes
-  ;;(setq modus-themes-italic-constructs t
-  ;;      modus-themes-bold-constructs nil
-  ;;      modus-themes-region '(bg-only no-extend))
-
-  ;; Load the theme files before enabling a theme
-  (modus-themes-load-themes)
-  :config
-  ;; Load the theme of your choice:
-  (modus-themes-load-vivendi) ;; OR (modus-themes-load-vivendi)
-  :bind ("<f5>" . modus-themes-toggle))
 
 ;; lsp-mode
 (setq lsp-log-io nil) ;; Don't log everything = speed
@@ -255,4 +245,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(markdown-code-face ((t nil))))
