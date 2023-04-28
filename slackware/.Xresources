@@ -142,7 +142,7 @@ xclock*font: -*-fixed-*-*-*-*-8-*-*-*-*-*-*-*
 Emacs.font:		Tamzen:size=12
 Emacs.Background: #000000
 
-! xcalc
+! xcalc - livarp
 xcalc*geometry: 200x275
 xcalc.ti.bevel.background: #111111
 xcalc.ti.bevel.screen.background: #000000
