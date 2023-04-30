@@ -1,0 +1,55 @@
+colors:
+  primary:
+    #background: '#000000'
+    background: '#1B1B1B'
+    foreground: '#f8f8f2'
+  
+  cursor:
+    text: '#44475a'
+    cursor: '#f8f8f2'
+  
+  # Selection colors
+  #
+  # Colors which should be used to draw the selection area. If selection
+  # background is unset, selection color will be the inverse of the cell colors.
+  # If only text is unset the cell text color will remain the same.
+  selection:
+    text: '#f8f8f2'
+    background: '#44475a'
+  
+  # Normal colors
+  normal:
+    black:   '#000000'
+    red:     '#ff5555'
+    green:   '#50fa7b'
+    yellow:  '#f1fa8c'
+    blue:    '#bd93f9'
+    magenta: '#ff79c6'
+    cyan:    '#8be9fd'
+    white:   '#bfbfbf'
+  
+  # Bright colors
+  bright:
+    black:   '#4d4d4d'
+    red:     '#ff6e67'
+    green:   '#5af78e'
+    yellow:  '#f4f99d'
+    blue:    '#caa9fa'
+    magenta: '#ff92d0'
+    cyan:    '#9aedfe'
+    white:   '#e6e6e6'
+  
+  # Dim colors
+  #
+  # If the dim colors are not set, they will be calculated automatically based
+  # on the `normal` colors.
+  dim:
+    black:   '#14151b'
+    red:     '#ff2222'
+    green:   '#1ef956'
+    yellow:  '#ebf85b'
+    blue:    '#4d5b86'
+    magenta: '#ff46b0'
+    cyan:    '#59dffc'
+    white:   '#e6e6d1'
+  

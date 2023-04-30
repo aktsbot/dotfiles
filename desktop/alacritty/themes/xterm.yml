@@ -1,0 +1,32 @@
+colors:
+  # Default colors
+  primary:
+    background: '#060606'
+    foreground: '#adadad'
+  
+  cursor:
+    text:   '#060606'
+    cursor: '#ffff00'
+  
+      # Normal colors
+  normal:
+    black:   '#5c5c5c'
+    red:     '#cd0000'
+    green:   '#00cd00'
+    yellow:  '#cdcd00'
+    blue:    '#1e90ff'
+    magenta: '#cd00cd'
+    cyan:    '#00cdcd'
+    white:   '#cfcfcf'
+
+  # Bright colors
+  bright:
+    black:   '#4c4c4c'
+    red:     '#ff0000'
+    green:   '#00ff00'
+    yellow:  '#ffff00'
+    blue:    '#4682b4'
+    magenta: '#ff00ff'
+    cyan:    '#00ffff'
+    white:   '#a8a8a8'
+
