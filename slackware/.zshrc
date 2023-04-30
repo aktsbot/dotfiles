@@ -3,7 +3,7 @@ if [[ ! -o interactive ]]; then
    return
 fi
 
-# ctrl+a/e
+# ctrl+a/e - emacs
 bindkey -e
 
 ## Bash-like navigation
