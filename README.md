@@ -13,6 +13,8 @@ I started to play around with [swaywm](https://swaywm.org) on [debian
 My blog has a [write up](https://blog.aktsbot.in/swaywm-on-debian-11.html) on
 how to set it all up on a minimal debian install.
 
+The [desktop](desktop) directory has configs for an ubuntu desktop session with i3.
+
 ## Quick dwm setup guide
 
 - Get the source `git clone https://git.suckless.org/dwm --depth=1`
