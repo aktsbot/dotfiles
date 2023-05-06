@@ -5,7 +5,7 @@ general {
   color_good = "#00FF00"
   color_degraded = "#FFFB00"
   color_bad = "#FF000D"
-    interval = 5
+  interval = 5
   markup = "pango"
 }
 
