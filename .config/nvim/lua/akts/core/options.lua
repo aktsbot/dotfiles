@@ -37,4 +37,5 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.iskeyword:append("-") -- consider string-string as whole word
 
-
+opt.undofile = true
+opt.undodir = "~/.local/share/nvim/undodir"
