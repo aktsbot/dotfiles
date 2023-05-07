@@ -1,0 +1,82 @@
+[user]
+    email =
+    name =
+[core]
+    editor = vim
+    #excludesfile = /home/akts/.gitignore_global
+    pager = diff-so-fancy | less --tabs=4 -RFX
+[interactive]
+    diffFilter = diff-so-fancy --patch
+[alias]
+    ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+    pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+    diff-remote = diff origin..master
+    branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:green)%(color:white)%(refname:short)\" refs/remotes
+    ff = pull --ff-only
+    fixup = rebase -i HEAD~5
+    ls = log --oneline --all --graph --decorate
+    logg = log --graph --pretty=format:'%C(bold 232 3)%h%C(reset) %C(bold 13 235)%cd%C(reset) %C(bold 6 235)%an%C(reset)%C(bold 10 235)%d%C(reset) %s' --date=short
+    graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)%C(reset)%n%x20%s%n"
+[github]
+    user = aktsbot
+[log]
+    decorate = true
+[push]
+    default = simple
+[diff]
+    compaction-heuristic = true
+    noprefix = true
+    wsErrorHighlight = all
+[rebase]
+    autostash = true
+[pull]
+    rebase = true
+    ff = only
+[init]
+    defaultBranch = main
+[fetch]
+    prune = true
+[merge]
+    ff = false
+    tool = vimdiff
+[grep]
+    lineNumber = true
+[color]
+    ui = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    pager = true
+[color "diff"]
+    plain = normal
+    meta = 11
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    commit = yellow bold
+    whitespace = red reverse
+    func = 146 bold
+[color "branch"]
+    current = green bold
+    local = normal
+    remote = red bold
+    plain = normal
+[color "status"]
+    header = normal
+    added = red bold
+    updated = green bold
+    changed = yellow bold
+    untracked = magenta bold
+    nobranch = red
+[color "grep"]
+    match = yellow bold
+[color "interactive"]
+    prompt = normal
+    header = black bold
+    help = magenta bold
+    error = red bold
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
