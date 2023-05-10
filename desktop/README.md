@@ -13,3 +13,6 @@ Alacritty and nvim are from their own GH repos
 
 - https://github.com/msjche/dotfiles_laptop
 
+## todo
+
+- minimal zshrc, vimrc
