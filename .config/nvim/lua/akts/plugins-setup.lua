@@ -35,6 +35,7 @@ return packer.startup(function(use)
 
 	-- colorscheme
 	use("Mofiqul/vscode.nvim")
+	use("nordtheme/vim")
 
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
