@@ -1,13 +1,18 @@
 local status, lualine = pcall(require, "lualine")
 
 if not status then
-  return
+	return
 end
 
 lualine.setup({
-  options = {
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-  }
+	options = {
+		theme = "powerline_dark",
+		icons_enabled = true,
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
+		disabled_filetypes = {
+			statusline = { "packer", "NVimTree" },
+			winbar = {},
+		},
+	},
 })
-
