@@ -36,8 +36,10 @@ return packer.startup(function(use)
 	-- colorscheme
 	use("Mofiqul/vscode.nvim")
 	use("nordtheme/vim")
+	use("projekt0n/github-nvim-theme")
+	use("rebelot/kanagawa.nvim")
 
-	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+	-- use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
 	use("szw/vim-maximizer") -- maximizes and restores current window
 
@@ -56,6 +58,9 @@ return packer.startup(function(use)
 
 	-- statusline
 	use("nvim-lualine/lualine.nvim")
+
+	-- buffer line like tabs
+	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 
 	-- fuzzy finding w/ telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
