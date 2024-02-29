@@ -41,34 +41,34 @@ setopt NO_CHECK_JOBS
 ## becomes the same as in bash.
 unsetopt nomatch
 
-##  prompt
-export PROMPT='%1~ %(?.%F{green}$.%F{red}$)%f '
+# adding git info to prompt
+git_prompt() {
+    branch="$(git symbolic-ref --short HEAD 2> /dev/null)"
 
-## Show Git branch to the right
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_title() { print -Pn "\e]0;%n@%m: %~\a" }
-precmd_functions+=(  precmd_title precmd_vcs_info )
-setopt prompt_subst
-RPROMPT=\$vcs_info_msg_0_
-zstyle ':vcs_info:git:*' formats '%F{240}%b%f' # '%b'
+    [ "$(git status --porcelain 2> /dev/null)" != "" ] && indicator="*"
+
+    [ "$branch" != "" ] \
+         && echo "($branch$indicator)"
+}
+
+##  prompt
+setopt PROMPT_SUBST
+export PROMPT='%B%F{cyan}%(5~|%-1~/.../%3~|%4~)%F{yellow}$(git_prompt)%(?.%F{green}$.%F{red}$)%f%b '
 
 ## Set window title to the current directory
 precmd () {
   print -Pn "\e]0;%n@%m: %~\a"
 }
 
-## In-shell syntax highlighting
-test -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh &&
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-## auto suggestions like zsh
-test -r ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh &&
-    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # fuzzy finder
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-test -r /usr/share/fzf/key-bindings.zsh &&
-    source /usr/share/fzf/key-bindings.zsh
+test -r $HOME/Programs/fzf/key-bindings.zsh &&
+    source $HOME/Programs/fzf/key-bindings.zsh
+test -r $HOME/Programs/fzf/completion.zsh &&
+    source $HOME/Programs/fzf/completion.zsh
+
+# colors for file listings
+[ -f ~/.dir_colors ] && eval $(dircolors ~/.dir_colors)
 
 # Aliases
 alias ip="ip -color=auto"
@@ -97,6 +97,8 @@ alias egrep='egrep --color=auto --exclude-dir=node_modules'
 alias igrep='grep -i'
 alias rgrep='grep -r -n'
 
+alias load_nvm="source $NVM_DIR/nvm.sh"
+
 # reading text
 alias o='less'
 
@@ -106,6 +108,9 @@ f() { ff() { find . -iname "*$**" ; } ; IFS="*" ff "$@" ; }
 # check errors on a daily basis
 alias gcc='gcc -Wall -Wextra'
 alias g++='g++ -Wall -Wextra'
+
+alias x='startx'
+alias root='sudo su -'
 
 # skip banner messages
 alias gdb='gdb --quiet'
@@ -134,6 +139,9 @@ alias rm='rm -Iv'
 alias ytaud='youtube-dl --add-metadata -ci --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
 alias ytvid='youtube-dl --add-metadata --no-playlist --no-part --write-description --newline --prefer-free-formats -o "%(title)s.%(ext)s" '
 
+# sysadmin friendly
+alias dmesg="sudo /bin/dmesg"
+
 # not an alias, but wth
 man() {
     LESS_TERMCAP_md=$'\e[01;31m' \
@@ -145,11 +153,17 @@ man() {
     command man "$@"
 }
 
-# node and nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# fnm
+export PATH="$HOME/.local/share/fnm:$PATH"
+eval "`fnm env`"
 
 if [ -f ~/.zshrc.local ]; then
    source ~/.zshrc.local
 fi
+
+## auto suggestions like fish
+source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+## In-shell syntax highlighting - shoudl be last
+source ~/.config/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
