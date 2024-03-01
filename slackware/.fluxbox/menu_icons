@@ -1,0 +1,32 @@
+[begin] (Fluxbox-1.3.7)
+    [exec] (Terminal) {xfce4-terminal} </usr/share/icons/elementary-xfce/apps/16/utilities-terminal.png>
+    [exec] (File Manager) {thunar} </usr/share/icons/elementary-xfce/places/16/user-home.png>
+    [exec] (Web Browser) {palemoon} </usr/share/icons/elementary-xfce/apps/16/web-browser.png>
+    [exec] (Editor) {geany} </usr/share/icons/elementary-xfce/apps/16/text-editor.png>
+    [separator]
+    [exec] (Run Program) {dmenu_run.sh} </usr/share/icons/elementary-xfce/actions/16/system-run.png>
+    [separator]
+    [include] (~/.fluxbox/xdg_menu_icons)
+    [separator]
+    [exec] (App Killer) {xkill} </usr/share/icons/elementary-xfce/actions/16/gtk-no.png>
+    [submenu] (Fluxbox) </usr/share/icons/elementary-xfce/categories/16/applications-system.png>
+        [workspaces] (Workspaces)
+        [submenu] (Tools)
+      	    [exec] (Screenshot) {scrot -e}
+      	    [exec] (Screenshot - delay 5) {scrot -d5 -e}
+	[end]
+	[submenu] (Styles)
+	    [stylesdir] (~/.fluxbox/styles)
+	    [stylesdir] (/usr/X11/share/fluxbox/styles)
+	[end]
+	[submenu] (Backgrounds)
+	    [wallpapers] (~/Pictures/Wallpapers/Full) {feh --bg-scale}
+	[end]
+        [config] (Configure)
+        [exec] (Refresh Menu) {generate_fluxbox_menus.sh}
+        [reconfigure] (Reconfigure)
+        [restart] (Restart)
+    [end]
+    [separator]
+    [exec] (Exit) {~/bin/dmenu_exit.sh} </usr/share/icons/elementary-xfce/actions/16/application-exit.png>
+[end]

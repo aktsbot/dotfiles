@@ -1,24 +1,42 @@
 ! The following line will prevent styles from setting the background.
 background: unset
 
-!*.font:                                 Sans-9
-!menu.frame.font:                        mintsstrong-7
-!menu.title.font:                        mintsstrong-7:bold
-!toolbar.clock.font:                     mintsstrong-7:bold
-!toolbar.workspace.font:                 mintsstrong-7:bold
-!toolbar.iconbar.focused.font:           mintsstrong-7:bold
-!toolbar.iconbar.unfocused.font:         mintsstrong-7
-!window.font:                            mintsstrong-7:bold
+!*.font:                                 Sans-8.5
+!menu.frame.font:                        Sans-8.5
+menu.title.font:                        Sans-1:bold
+!toolbar.clock.font:                     Sans-8.5:bold
+!toolbar.workspace.font:                 Sans-8.5:bold
+!toolbar.iconbar.focused.font:           Sans-8.5:bold
+!toolbar.iconbar.unfocused.font:         Sans-8.5
+!toolbar.button.font:                    Sans-8.5
+!window.font:                            Sans-8.5:bold
+!menu.hilite.font:                       Sans-9:bold
+!window.font:                            Sans-8.5
+!window.label.focus.font:                Sans-8.5:bold
+!window.label.unfocus.font:              Sans-8.5
 
-!window.title.height:                    20
 
+*.font: snap-7
+!menu.title.font:                        Sans-1
+!toolbar.iconbar.focused.font:           Terminus-9:bold
+!toolbar.iconbar.unfocused.font:         Terminus-9
+!window.font:                            Terminus-9
+!window.label.focus.font:                Terminus-9:bold
+!window.label.unfocus.font:              Terminus-9
+toolbar.clock.font:                      anorexia-7
+toolbar.workspace.font:                  anorexia-7
 
-!window.font:                    -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
-!menu.frame.font:                -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
-!menu.title.font:                -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
-!toolbar.clock.font:             -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
-!toolbar.iconbar.focused.font:   -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
-!toolbar.iconbar.unfocused.font: -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
-!toolbar.workspace.font:         -*-terminus-medium-r-*-*-12-*-*-*-*-*-iso10646-1
+!*.font:                                 Helvetica-9
+!menu.frame.font:                        Helvetica-9
+!menu.title.font:                        Helvetica-9:bold
+!toolbar.clock.font:                     Helvetica-9:bold
+!toolbar.workspace.font:                 Helvetica-9:bold
+!toolbar.iconbar.focused.font:           Helvetica-9:bold
+!toolbar.iconbar.unfocused.font:         Helvetica-9
+!toolbar.button.font:                    Helvetica-9
+!window.font:                            Helvetica-9:bold
+!menu.hilite.font:                       Helvetica-9
+!window.font:                            Helvetica-9
+!window.label.focus.font:                Helvetica-9:bold
+!window.label.unfocus.font:              Helvetica-9:bold
 
-*.font: mintsstrong-7
