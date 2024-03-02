@@ -1,0 +1,4 @@
+#!/bin/sh
+
+lftp -c "open $1 ; mirror -e -c"
+
