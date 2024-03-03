@@ -1,51 +1,101 @@
 [user]
-	email = box.ashishk@gmail.com
-  name = aktsbot
+    email = box.ashishk@gmail.com
+    name = aktsbot
 [core]
-  editor = vim
+    editor = vim
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    features = decorations
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
 [alias]
-  diff-remote = diff origin..master
-  ff = pull --ff-only
-  fixup = rebase -i HEAD~5
-  ls = log --oneline --all --graph --decorate
-  graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)%C(reset)%n%x20%s%n"
-[color]
-  ui = auto
+    ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+    pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+    diff-remote = diff origin..master
+    branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:green)%(color:white)%(refname:short)\" refs/remotes
+    ff = pull --ff-only
+    fixup = rebase -i HEAD~5
+    aa = add --all
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit
+    br = branch -vv
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    ld = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --graph
+    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+[github]
+    user = aktsbot
+[log]
+    decorate = true
 [push]
-  default = simple
+    default = simple
 [diff]
-  compaction-heuristic = true
-  noprefix = true
+    compaction-heuristic = true
+    noprefix = true
+    wsErrorHighlight = all
 [rebase]
-  autostash = true
+    autostash = true
 [pull]
-  rebase = false
+    rebase = true
+    ff = only
 [init]
-	defaultBranch = main
+    defaultBranch = main
+[fetch]
+    prune = true
+[merge]
+    ff = false
+    tool = vimdiff
+[grep]
+    lineNumber = true
+[color]
+    ui = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    pager = true
 [color "diff"]
-  plain = normal
-  meta = bold
-  frag = cyan bold
-  old = red bold
-  new = green bold
-  commit = yellow bold
-  whitespace = black red
+    plain = normal
+    meta = 11
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    commit = yellow bold
+    whitespace = red reverse
+    func = 146 bold
 [color "branch"]
-  current = green bold
-  local = normal
-  remote = red bold
-  plain = normal
+    current = green bold
+    local = normal
+    remote = red bold
+    plain = normal
 [color "status"]
-  header = normal
-  added = red bold
-  updated = green bold
-  changed = yellow bold
-  untracked = magenta bold
-  nobranch = red
-[color "grep"]                                                                  
-  match = yellow bold
-[color "interactive"]                                                           
-  prompt = normal                                                               
-  header = black bold                                                           
-  help = magenta bold                                                           
-  error = red bold
+    header = normal
+    added = red bold
+    updated = green bold
+    changed = yellow bold
+    untracked = magenta bold
+    nobranch = red
+[color "grep"]
+    match = yellow bold
+[color "interactive"]
+    prompt = normal
+    header = black bold
+    help = magenta bold
+    error = red bold
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
