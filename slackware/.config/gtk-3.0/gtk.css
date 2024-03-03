@@ -1,0 +1,183 @@
+button:not(.text-button):not(.combo) {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+button.image-button:not(.text-button) {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+button.sidebar-button.image-button {
+  min-width: 10px;
+  min-height: 10px;
+  padding: 0;
+}
+button.slider-button:not(.text-button) {
+  padding-left: 0;
+  padding-right: 0;
+}
+button.selection-menu {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+
+
+entry,
+spinbutton {
+  min-height: 14px;
+}
+stackswitcher > button.text-button:not(.circular) {
+  min-width: 32px;
+}
+.stack-switcher > button > image {
+  padding: 0 2px;
+}
+toolbar.inline-toolbar button.image-button {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+treeview header button {
+  min-height: 16px;
+}
+notebook tabs {
+  padding: 0;
+}
+notebook tab {
+  margin: 0;
+  min-height: 25px;
+}
+notebook tab button.flat {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+notebook
+  > header
+  > tabs
+  > tab
+  > box
+  > button.flat:not(.text-button):not(.combo) {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+
+
+notebook tabs {
+  padding: 0;
+}
+notebook tab {
+  margin: 0;
+  min-height: 12px;
+}
+notebook tab button.flat {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+notebook
+  > header
+  > tabs
+  > tab
+  > box
+  > button.flat:not(.text-button):not(.combo) {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+
+toolbutton button {
+  padding: 1px;
+}
+toolbutton button.popup.toggle {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+toolbutton button label {
+  padding-left: 1px;
+  padding-right: 0;
+}
+
+tooltip * {
+  padding: 1px;
+}
+
+popover.background {
+  padding: 0;
+}
+
+
+
+placessidebar row {
+  min-height: 15px;
+}
+placessidebar row revealer {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+menu,
+.menu,
+.context-menu {
+  margin: 1px;
+  padding: 1px;
+}
+
+menu menuitem,
+.menu menuitem,
+.context-menu menuitem {
+  padding: 2px;
+}
+
+menu > arrow,
+.menu > arrow,
+.context-menu > arrow {
+  padding: 2px;
+}
+
+
+.titlebar,
+headerbar {
+  min-height: 16px;
+}
+button.titlebutton {
+  min-height: 14px;
+  min-width: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+headerbar switch {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.default-decoration {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.maximized .default-decoration,
+.tiled .default-decoration {
+  min-height: 14px;
+}
+.maximized .default-decoration .titlebutton,
+.tiled .default-decoration .titlebutton {
+  min-height: 10px;
+}
+
+ 
+menu menuitem check:not(:checked),
+menu menuitem radio:not(:checked) {
+  border-color: alpha(currentColor, 0.3);
+}
+
+modelbutton.flat {
+  border-radius: 2px;
+}
+modelbutton.flat:hover {
+  color: @theme_selected_fg_color;
+  background-color: @theme_selected_bg_color;
+}
+.titlebar > .right,
+.titlebar > headerbar > .right {
+  margin-left: -6px;
+}
+@import 'colors.css';
