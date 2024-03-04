@@ -1,19 +1,19 @@
-require("akts.plugins-setup")
+--[[
+This config is built from https://github.com/nvim-lua/kickstart.nvim and
+https://github.com/dam9000/kickstart-modular.nvim
+--]]
 
-require("akts.core.options")
-require("akts.core.keymaps")
-require("akts.core.colorscheme")
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-require("akts.plugins.comment")
-require("akts.plugins.nvim-tree")
-require("akts.plugins.lualine")
-require("akts.plugins.telescope")
-require("akts.plugins.nvim-cmp")
+require("user.options")
+require("user.keymaps")
+require("user.colorscheme")
 
-require("akts.plugins.lsp.mason")
-require("akts.plugins.lsp.lspsaga")
-require("akts.plugins.lsp.lspconfig")
-require("akts.plugins.lsp.null-ls")
-require("akts.plugins.autopairs")
-require("akts.plugins.treesitter")
-require("akts.plugins.gitsigns")
+require("user.lazy-bootstrap")
+require("user.lazy-plugins")
+
+-- vim: ts=2 sts=2 sw=2 et
