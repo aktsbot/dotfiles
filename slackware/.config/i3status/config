@@ -1,0 +1,19 @@
+general {
+  colors = true
+  interval = 5
+  markup = "pango"
+}
+
+order += "load"
+order += "tztime local"
+
+load {
+	#format = "%1min/%5min/%15min"
+	format = "<span color='green'>%1min/%5min/%15min</span>"
+	format_above_threshold = "<span color='white' background='#900000'>%1min/%5min/%15min</span>"
+}
+
+tztime local {
+	#format = "%Y-%m-%d %H:%M"
+  format = "<span color='darkcyan'>%Y-%m-%d</span> <span color='gold3'>%H:%M</span>"
+}
