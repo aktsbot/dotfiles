@@ -1,34 +1,15 @@
 #!/bin/sh
 
-#f="Monospace:bold:size=9"
-#NORMAL_BACKGROUND="#000000"
-#NORMAL_FOREGROUND="#aaaaaa"
-#SELECTED_BACKGROUND="#333333"
-#SELECTED_FOREGROUND="#ffffff"
-
-#f="Helvetica:bold:size=9"
-#NORMAL_BACKGROUND="#C0C0C0"
-#NORMAL_FOREGROUND="#000000"
-#SELECTED_BACKGROUND="#000080"
-#SELECTED_FOREGROUND="#ffffff"
-
-#f="Monospace:bold:size=10"
-#NORMAL_BACKGROUND="#000036"
-#NORMAL_FOREGROUND="cyan"
-#SELECTED_BACKGROUND="blue"
-#SELECTED_FOREGROUND="yellow"
-
-f="snap:size=8"
-NORMAL_BACKGROUND="#222222"
-NORMAL_FOREGROUND="#777777"
+f="Monospace:bold:size=12"
+NORMAL_BACKGROUND="#000000"
+NORMAL_FOREGROUND="#aaaaaa"
 SELECTED_BACKGROUND="#333333"
 SELECTED_FOREGROUND="#ffffff"
 
 #dmenu_run \
 #  -p "Run: " -fn "$f"
 
-# add -b for bottom
-dmenu_run \
+dmenu_run -b \
   -p "Run: " -fn "$f" \
   -nb "$NORMAL_BACKGROUND" \
   -nf "$NORMAL_FOREGROUND" \

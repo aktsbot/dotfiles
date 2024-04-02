@@ -1,15 +1,13 @@
 #!/bin/sh
 
-f="snap:size=8"
-#f="Monospace:bold:size=10"
-#f="Helvetica:bold:size=9"
-NORMAL_BACKGROUND="#4E0000"
-NORMAL_FOREGROUND="#cccccc"
-SELECTED_BACKGROUND="#A52525"
+f="Monospace:bold:size=12"
+NORMAL_BACKGROUND="darkred"
+NORMAL_FOREGROUND="gray"
+SELECTED_BACKGROUND="red"
 SELECTED_FOREGROUND="white"
 
-alias WM_EXIT_DMENU='dmenu \
-  -fn "$f" \
+alias WM_EXIT_DMENU='dmenu -b \
+	-fn "$f" \
   -nb "$NORMAL_BACKGROUND" \
   -nf "$NORMAL_FOREGROUND" \
   -sb "$SELECTED_BACKGROUND" \
@@ -23,6 +21,6 @@ echo $RET
 case $RET in
 	poweroff) sudo poweroff ;;
 	reboot) sudo reboot ;;
-	exit) pkill X ;;
+	exit) jwm -exit ;;
 	*) ;;
 esac
