@@ -1,0 +1,11 @@
+table Icon
+  Caption: My Home
+  ToolTip.Caption: Opens your home folder
+  Icon: /home/akts/.icons/misc/home.png
+  X: 34
+  Y: 48
+  Width: 48
+  Height: 48
+  Command[0]: thunar /home/akts
+end
+
