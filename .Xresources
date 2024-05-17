@@ -1,20 +1,24 @@
-Xft.autohint: 1
-Xft.antialias: 1
-Xft.hinting: 1
-Xft.hintstyle: hintfull
+Xft.autohint: false
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
 Xft.dpi: 96
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
-Xcursor.theme: ATER_Blue
+Xcursor.theme: Adwaita
 
-! just a grey on black urxvt with no bold and italic fonts
-! defaults to fixed 6x13 from X
-URxvt*background: #000000
-URxvt*foreground: #aaaaaa
-URxvt.underlineColor: #777777
-URxvt.scrollBar: False
-URxvt.boldFont:
-URxvt.italicFont:
-URxvt.boldItalicFont:
+! URxvt settings
+URxvt.foreground: #aaaaaa
+URxvt.background: #000000
+
+! Xterm
+XTerm*utf8: 1
+XTerm*metaSendsEscape: true
+XTerm*selectToClipboard: true
+XTerm*charClass: 0-32:1,33-126:2,127-160:3,161-255:2
+
+XTerm*foreground: #aaaaaa
+XTerm*background: #000000
+XTerm*color0: #222222
 

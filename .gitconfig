@@ -46,6 +46,7 @@
     compaction-heuristic = true
     noprefix = true
     wsErrorHighlight = all
+    colorMoved = default
 [rebase]
     autostash = true
 [pull]
@@ -58,6 +59,7 @@
 [merge]
     ff = false
     tool = vimdiff
+    conflictstyle = diff3
 [grep]
     lineNumber = true
 [color]

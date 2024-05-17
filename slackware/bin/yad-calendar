@@ -1,4 +1,0 @@
-#!/bin/sh
-
-yad --calendar --mouse --close-on-unfocus --undecorated --skip-taskbar --no-buttons
-
