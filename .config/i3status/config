@@ -1,0 +1,63 @@
+general {
+  colors = true
+  interval = 10
+}
+
+order += "wireless wlan0"
+order += "disk /"
+order += "disk /home"
+order += "memory"
+order += "load"
+order += "cpu_temperature cpu0"
+order += "battery 1"
+order += "tztime utc"
+order += "tztime local"
+
+cpu_temperature cpu0 {
+        format = "🌡️ %degrees C"
+}
+
+wireless wlan0 {
+        format_up = "📶 %essid (%signal) %ip"
+        format_down = "❌ down"
+}
+
+load {
+    format = "💪 %1min/%5min/%15min"
+}
+
+battery 1 {
+	format = "%status %percentage"
+	integer_battery_capacity = true
+	last_full_capacity = true
+	low_threshold = 35
+	status_chr = "🔌"
+	status_bat = "🔋"
+	status_unk = "❗"
+	status_full = "♻️"
+}
+
+tztime local {
+    format = "📅 %Y-%m-%d 🕛 %H:%M %Z"
+}
+
+tztime utc {
+  format = "🌐 %I:%M %Z"
+  timezone = "Etc/UTC"
+}
+
+memory {
+  format = "🧠 %used"
+  threshold_degraded = "1G"
+  format_degraded = "MEMORY < %available"
+}
+
+disk "/" {
+  format = "💾 %avail"
+}
+
+disk "/home" {
+  format = "🏠 %avail"
+}
+
+
