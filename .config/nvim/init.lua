@@ -11,7 +11,7 @@ vim.g.maplocalleader = " "
 
 require("user.options")
 require("user.keymaps")
-require("user.colorscheme")
+-- require("user.colorscheme")
 
 require("user.lazy-bootstrap")
 require("user.lazy-plugins")

@@ -1,10 +1,10 @@
 #!/bin/sh
 
-f="Monospace:bold:size=8"
+f="Monospace:bold:size=10"
 NORMAL_BACKGROUND="#000000"
 NORMAL_FOREGROUND="#aaaaaa"
-SELECTED_BACKGROUND="#333333"
-SELECTED_FOREGROUND="#ffffff"
+SELECTED_BACKGROUND="#5f005f"
+SELECTED_FOREGROUND="#ffff00"
 
 #dmenu_run \
 #  -p "Run: " -fn "$f"

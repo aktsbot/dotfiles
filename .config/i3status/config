@@ -14,16 +14,16 @@ order += "tztime utc"
 order += "tztime local"
 
 cpu_temperature cpu0 {
-        format = "🌡️ %degrees C"
+        format = "%degrees C"
 }
 
 wireless wlan0 {
-        format_up = "📶 %essid (%signal) %ip"
-        format_down = "❌ down"
+        format_up = "W: %essid (%signal) %ip"
+        format_down = "W: down"
 }
 
 load {
-    format = "💪 %1min/%5min/%15min"
+    format = "%1min/%5min/%15min"
 }
 
 battery 1 {
@@ -31,33 +31,33 @@ battery 1 {
 	integer_battery_capacity = true
 	last_full_capacity = true
 	low_threshold = 35
-	status_chr = "🔌"
-	status_bat = "🔋"
-	status_unk = "❗"
-	status_full = "♻️"
+	status_chr = "C"
+	status_bat = "B"
+	status_unk = "?"
+	status_full = "F"
 }
 
 tztime local {
-    format = "📅 %Y-%m-%d 🕛 %H:%M %Z"
+    format = "%Y-%m-%d %H:%M"
 }
 
 tztime utc {
-  format = "🌐 %I:%M %Z"
+  format = "%I:%M %Z"
   timezone = "Etc/UTC"
 }
 
 memory {
-  format = "🧠 %used"
+  format = "%used"
   threshold_degraded = "1G"
   format_degraded = "MEMORY < %available"
 }
 
 disk "/" {
-  format = "💾 %avail"
+  format = "/: %avail"
 }
 
 disk "/home" {
-  format = "🏠 %avail"
+  format = "/home: %avail"
 }
 
 

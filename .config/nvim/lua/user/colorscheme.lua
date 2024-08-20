@@ -1,3 +1,5 @@
+-- not loaded anymore as we are using catppuccin
+
 vim.cmd.colorscheme("default")
 
 --

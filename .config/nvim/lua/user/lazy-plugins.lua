@@ -13,6 +13,7 @@
 require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
+	require("user/plugins/vim-moonfly-colors"),
 	require("user/plugins/comment"),
 	require("user/plugins/gitsigns"),
 	require("user/plugins/which-key"),
@@ -30,6 +31,9 @@ require("lazy").setup({
 
 	require("user/plugins/colorizer"),
 	require("user/plugins/surround"),
+
+	require("user/plugins/bufferline"),
+	require("user/plugins/alpha-nvim"),
 
 	{
 		import = "user.plugins.lsp",

@@ -6,10 +6,10 @@ Xft.dpi: 96
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
-Xcursor.theme: Adwaita
+Xcursor.theme: breeze_cursors
 
 ! URxvt settings
-URxvt.foreground: #aaaaaa
+URxvt.foreground: #a8a8a8
 URxvt.background: #000000
 
 ! Xterm
@@ -17,8 +17,25 @@ XTerm*utf8: 1
 XTerm*metaSendsEscape: true
 XTerm*selectToClipboard: true
 XTerm*charClass: 0-32:1,33-126:2,127-160:3,161-255:2
+XTerm*loginshell: true
+XTerm*scrollTtyOutput: false
 
-XTerm*foreground: #aaaaaa
-XTerm*background: #000000
-XTerm*color0: #222222
+XTerm*foreground: rgb:a8/a8/a8
+XTerm*background: rgb:00/00/00
 
+*color0: rgb:22/22/22
+*color1: rgb:a8/00/00
+*color2: rgb:00/a8/00
+*color3: rgb:a8/54/00
+*color4: rgb:00/00/a8
+*color5: rgb:a8/00/a8
+*color6: rgb:00/a8/a8
+*color7: rgb:a8/a8/a8
+*color8: rgb:54/54/54
+*color9: rgb:fc/54/54
+*color10: rgb:54/fc/54
+*color11: rgb:fc/fc/54
+*color12: rgb:54/54/fc
+*color13: rgb:fc/54/fc
+*color14: rgb:54/fc/fc
+*color15: rgb:fc/fc/fc

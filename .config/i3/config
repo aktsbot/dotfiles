@@ -135,7 +135,9 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+#bindsym $mod+Shift+c reload
+# -- the reload config command is causing problems in slackware.
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -182,20 +184,14 @@ mode "$mode_system" {
 
 bindsym $mod+Shift+x mode "$mode_system"
 
-# colors
-set $orange #774422
-set $gray #000000
-set $red #900000
-set $lgray #4c7899
-set $white #E6EFFF
-set $lgray2 #2C3036
-set $lgray3 #666666
+# class                 border  backgr. text    indicator child_border
+client.focused          #87005f #870087 #ffffff #878700   #870087
+client.focused_inactive #353535 #303030 #aaaaaa #404040   #303030
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #800000 #900000 #ffffff #900000   #900000
+client.placeholder      #5f0000 #0c0c0c #ffffff #000000   #0c0c0c
 
-#<what>           <border> <bg>   <font>  <indicator>
-#667788 - indicator
-client.focused $lgray $lgray #ffffff #2e9ef4 $lgray
-client.unfocused $lgray3 $lgray2 #888888 $lgray2 $lgray2
-client.focused_inactive $lgray3 $lgray3 #888888 $lgray3 $lgray3
+client.background       #cccccc
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -205,14 +201,16 @@ bar {
   position top
   tray_output primary
   colors {
-    background $gray
-
+    background #000000
     statusline #aaaaaa
-    inactive_workspace $gray $gray #aaaaaa
-    active_workspace $gray $gray #ffffff
-    urgent_workspace $red $red #ffffff
-    focused_workspace #333333 #333333 #ffffff
-    urgent_workspace $red $red #ffffff
+    separator #af5f00
+
+    # class            border   backgr. text
+    focused_workspace  #0000d7 #000080 #ffff00
+    active_workspace   #202020 #111111 #CCCCCC
+    inactive_workspace #202020 #111111 #888888
+    urgent_workspace   #800000 #900000 #FFFFFF
+    binding_mode       #5f0000 #900000 #FFFFFF
   }
 }
 
@@ -233,7 +231,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id thunar --daemon
 exec --no-startup-id pasystray
 exec --no-startup-id xfce4-clipman
-exec --no-startup-id picom
+exec --no-startup-id picom --config ~/.config/picom.glx.conf
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id blueman-applet
@@ -261,7 +259,7 @@ bindsym $mod+u [instance="^(?!terminal-dropdown$).*$"] scratchpad show
 for_window [title="^terminal-dropdown$"] \
     floating enable, border none, \
     resize set 100 ppt 50 ppt, \
-    move position 0 24, \
+    move position 0 20, \
     move scratchpad
 
 # start dropdown scratch
@@ -274,6 +272,7 @@ for_window [class="(?i)lxappearance"] floating enable
 for_window [class="(?i)file-roller"] floating enable
 for_window [class="(?i)blueman-manager"] floating enable
 for_window [class="(?i)audacious"] floating enable
+for_window [class="(?i)nitrogen"] floating enable
 for_window [class="(?i)pavucontrol"] floating enable
 for_window [class="(?i)update-manager"] floating enable
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
@@ -380,3 +379,4 @@ for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
 for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
+
