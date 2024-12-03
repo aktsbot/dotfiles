@@ -1,4 +1,4 @@
-#!/usr/bin/env lua5.3
+#!/usr/bin/env lua
 
 conky_color = "${color3}%2d${color}"
 
@@ -57,5 +57,5 @@ io.write(
 	string
 		.format(string.rep("   ", daystart - 1) .. string.rep(" %2d", days), seq(1, days))
 		:gsub(string.rep(".", 21), "%0\n")
-		:gsub(("%2d"):format(currentday), (conky_color):format(currentday)) .. "\n"
+		:gsub(("%2d"):format(currentday), (conky_color):format(currentday), 1) .. "\n"
 )
