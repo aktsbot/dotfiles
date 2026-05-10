@@ -1,0 +1,77 @@
+* {
+  /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
+  font-family: FontAwesome, Play, sans-serif;
+  border: none;
+  text-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-size: 12px;
+}
+
+tooltip {
+    border:none;
+    outline:none;
+    background:none;
+    border-radius:0px;
+}
+
+window#waybar {
+  /* background-color: rgba(0, 0, 0, 0.9); */
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(18, 18, 18, 0.8));
+  color: #aaaaaa;
+  padding: 0 3px;
+  border-top: 1px solid rgba(18, 18, 18, 0.9);
+}
+
+.modules-right {
+  padding: 0 10px;
+}
+
+#pulseaudio {
+  font-family: monospace;
+  color: #888888;
+}
+
+#clock {
+  margin-left: 5px;
+  font-size: 22px;
+  /* font-weight: bold; */
+  font-family: "DS\-Digital", sans-serif;
+  color: cyan;
+}
+
+#battery {
+  margin-right: 8px;
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid #aaaaaa;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 2px;
+}
+#battery.full,
+#battery.charging{
+ color: green;
+ border-color: green;
+}
+#battery.discharging {
+ color: yellow;
+ border-color: yellow;
+}
+
+#taskbar button {
+  /*min-width: 175px;*/
+  border-radius: 0;
+  background: #111;
+  color: #888888;
+}
+
+#taskbar button.active {
+  background: #222;
+  color: #ffffff;
+  font-weight: bold;
+}
+

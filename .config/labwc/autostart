@@ -1,0 +1,35 @@
+
+# Set display resolution (uncomment for VM or specific resolution needs)
+#wlr-randr --output Virtual-1 --mode 1920x1080 &
+
+# Set background color.
+#swaybg -c '#113344' >/dev/null 2>&1 &
+#swaybg -i $HOME/Pictures/cb-tile.png -m tile &
+swaybg -i $HOME/Pictures/bladerunner1.jpg -m fill &
+
+# Launch a panel such as yambar or waybar.
+waybar >/dev/null 2>&1 &
+
+# polkit auth agent
+lxpolkit &
+
+# Enable notifications. 
+mako &
+
+# clipboard
+#wl-paste -t text --watch clipman store &
+copyq &
+
+# bluetooth
+blueman-applet &
+
+# Network manager
+nm-applet &
+
+# pops open a notification if battery is below percent
+battery-notify &
+
+# Enable visual feedback on sound/brightness adjust
+rm $WOBSOCK
+mkfifo $WOBSOCK && sleep 2
+tail -f $WOBSOCK | wob >/dev/null 2>&1 &

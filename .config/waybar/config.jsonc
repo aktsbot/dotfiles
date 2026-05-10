@@ -1,0 +1,52 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 28,
+  "spacing": 4,
+  "modules-left": ["wlr/taskbar"],
+  "modules-center": [],
+  "modules-right": ["battery", "pulseaudio" ,"tray", "clock"],
+  "tray": {
+    "spacing": 5,
+  },
+  "wlr/taskbar": {
+    // "format": "{icon}  {title:.25}",
+    "format": "{icon}",
+    "on-click": "minimize-raise",
+    "markup": true,
+    "all-outputs": false,
+    "icon-size": 16,
+    "max-length": 10 // Limits characters per button
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    // "tooltip-format": "{:%a %b %d}",
+    "interval": 60,
+    "tooltip-format": "<tt><big>{:%d %A}</big>\n<small>{calendar}</small></tt>",
+    "calendar": {
+        "mode": "month",
+        "weeks-pos": "",
+        "format": {
+		      "today": "<span color='yellow'><b><u>{}</u></b></span>"
+	      }
+    }
+  },
+
+  "battery": {
+    "bat": "BAT0",
+    "interval": 60,
+    "format": "B {capacity}%",
+    "format-charging": "C {capacity}%"
+  },
+
+  "pulseaudio": {
+    "format": "🔊 <small>{volume}%</small>",
+    "format-muted": "🔇",
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+  }
+
+}
+

@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+
+<!--
+  This is a very simple config file with many options missing. For a complete
+  set of options with comments, see docs/rc.xml.all
+-->
+
+<labwc_config>
+
+  <theme>
+    <name>Minigun</name>
+    <cornerRadius>4</cornerRadius>
+    <font name="sans" size="9" />
+    <!-- <dropShadows>yes</dropShadows> -->
+
+    <font place="ActiveWindow">
+      <name>sans</name>
+      <size>9</size>
+      <weight>bold</weight>
+    </font>
+    <titlebar>
+      <layout>icon:iconify,max,close</layout>
+      <showTitle>yes</showTitle>
+    </titlebar>
+  </theme>
+
+  <!-- Placement -->
+  <placement>
+    <policy>cursor</policy>
+  </placement>
+
+  <keyboard>
+	  <default />
+	  <keybind key="F11">
+      <action name="ToggleFullscreen"/>
+    </keybind>
+    <keybind key="W-a">
+      <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="W-Return">
+      <action name="Execute" command="foot" />
+    </keybind>
+    <keybind key="W-w">
+      <action name="Execute" command="firefox" />
+    </keybind>
+    <keybind key="W-e">
+      <action name="Execute" command="pcmanfm-qt" />
+    </keybind>
+    <keybind key="W-r">
+      <action name="Execute" command="wofi --show run" />
+    </keybind>
+    <keybind key="W-x">
+      <action name="Execute" command="exitw" />
+    </keybind>
+    <keybind key="W-l">
+      <action name="Execute" command="swaylock -c '#000000'" />
+    </keybind>
+    <keybind key="W-S-v">
+      <action name="Execute" command="copyq toggle" />
+    </keybind>
+    <keybind key="W-s">
+      <action name="Execute" command="screenshooter" />
+    </keybind>
+    <keybind key="W-S-s">
+      <action name="Execute" command="screenshooter region" />
+    </keybind>
+    <!--
+      Remove a previously defined keybind
+      A shorter alternative is <keybind key="W-F4" />
+    -->
+    <keybind key="W-F4">
+      <action name="None" />
+    </keybind>
+
+    <repeatRate>50</repeatRate>
+    <repeatDelay>350</repeatDelay>
+
+
+    <!-- Window actions -->
+    <keybind key="W-S-q">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="W-q">
+      <action name="Close"/>
+    </keybind>
+
+    <!-- Window switching (Alt-Tab) -->
+    <keybind key="A-Tab">
+      <action name="NextWindow"/>
+    </keybind>
+    <keybind key="A-S-Tab">
+      <action name="PreviousWindow"/>
+    </keybind>
+
+
+    <!-- multimedia keys -->
+    <keybind key="XF86_AudioLowerVolume">
+		  <action name="Execute" command="sh -c '$MYAUDIODOWN'" />
+    </keybind>
+    <keybind key="XF86_AudioRaiseVolume">
+      <action name="Execute">
+				<command>sh -c "$MYAUDIOUP"</command>
+			</action>
+    </keybind>
+    <keybind key="XF86_AudioMute">
+      <action name="Execute">
+				<command>sh -c "$MYAUDIOMUTE"</command>
+			</action>
+    </keybind>
+    <keybind key="XF86_MonBrightnessUp">
+      <action name="Execute">
+				<command>sh -c "$MYBRIGHTNESSUP"</command>
+			</action>
+    </keybind>
+    <keybind key="XF86_MonBrightnessDown">
+      <action name="Execute">
+				<command>sh -c "$MYBRIGHTNESSDOWN"</command>
+			</action>
+    </keybind>
+
+    <!-- multimedia keys not working? -->
+    <keybind key="W-semicolon">
+		  <action name="Execute" command="audio down" />
+    </keybind>
+    <keybind key="W-apostrophe">
+      <action name="Execute" command="audio up" />
+    </keybind>
+    <keybind key="W-slash">
+      <action name="Execute" command="audio mute" />
+    </keybind>
+
+  </keyboard>
+
+  <mouse>
+    <default />
+    <!-- Show a custom menu on desktop right click -->
+    <context name="Root">
+      <mousebind button="Left" action="Press">
+        <action name="None" />
+      </mousebind>
+      <mousebind button="Right" action="Press">
+        <action name="ShowMenu" menu="root-menu" />
+      </mousebind>
+    </context>
+  </mouse>
+
+  <!-- Desktops -->
+  <windowSwitcher show="yes" preview="no" outlines="no" allWorkspaces="no">
+    <fields>
+      <field content="trimmed_identifier" width="25%" />
+      <field content="title" width="75%" />
+    </fields>
+  </windowSwitcher>
+
+ <desktops>
+	 <number>1</number>
+	 <prefix>ws</prefix>
+ </desktops>
+
+</labwc_config>
